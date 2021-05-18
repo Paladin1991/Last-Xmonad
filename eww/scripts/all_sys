@@ -1,0 +1,200 @@
+#!/bin/bash
+
+# Music utils
+
+Spot(){
+
+    if ps -C spotify > /dev/null; then
+        PLAYER="spotify"
+    elif ps -C spotifyd > /dev/null; then
+        PLAYER="spotifyd"
+    fi
+
+   
+
+    if [ "$PLAYER" = "spotify" ] || [ "$PLAYER" = "spotifyd" ]; then
+        ARTIST=$(playerctl metadata artist)
+        TRACK=$(playerctl metadata title)
+        STATUS=$(playerctl -p spotify status)
+        SHUFFLE=$(playerctl shuffle)
+				
+            if [[ $STATUS = Playing ]]; then
+                STATUS="Icons/Candy/pause.svg"
+            else
+                STATUS="Icons/Candy/play.svg"                
+            fi
+            
+        if [[ "$PLAYER" = "spotify" ]]; then
+            printf "$STATUS"
+        else
+        	printf "Icons/Candy/play.svg"
+        fi
+    fi
+
+}
+
+Get_Art(){
+
+tmp_dir="/tmp/spotify"
+tmp_cover_path=$tmp_dir/cover.png
+
+if [ ! -d $tmp_dir ]; then
+	mkdir -p $tmp_dir
+fi
+
+artlink="$(playerctl metadata mpris:artUrl | sed -e 's/open.spotify.com/i.scdn.co/g')"
+
+if [ $(playerctl metadata mpris:artUrl) ]; then
+	curl -s "$artlink" --output $tmp_cover_path;
+else cp ~/.config/eww/images/image.png $tmp_cover_path;
+fi
+
+}
+
+Status=$(mpc status | sed -n 2p | awk '{print $1}' | sed 's/]//g;s/\[//g')
+
+Music_Notify(){
+
+	if [[ $Status = playing ]]; then
+		mpc idle player > /dev/null 2>&1
+        NOTIFY_TITLE="Now Playing"
+        MUSIC_INFO=$(mpc current -f "%title%\\n%artist% - %album%")
+        
+        notify-send -i music  "$NOTIFY_TITLE"  "$MUSIC_INFO"
+    fi
+}
+
+
+Play_Pause(){
+	
+		if [[ $Status = playing ]]; then
+			echo ""
+		else
+            echo "" 
+		fi
+}
+
+Artist(){
+
+		if [[ $Status = playing ]]; then
+			mpc -f %artist% | sed -n 1p
+		else
+			echo "No playing"
+		fi		
+
+}
+
+Title(){
+
+		if [[ $Status = playing ]]; then
+			mpc -f %title% | sed -n 1p
+		fi		
+
+}
+
+Music_Progress(){
+	mpc status | sed -n 2p | awk '{print $4}' | sed 's/[()%]//g'
+}
+
+Player(){
+    if ps -C spotify > /dev/null; then
+        echo "eww open spotify"
+        exit 1
+    elif pgrep mpd > /dev/null; then
+        echo "eww open mpd"
+        exit 1
+    fi
+}
+
+# Volume utils
+
+Get_Vol(){
+	amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'
+}
+
+Volume_Icon(){
+	Status_Vol=$(amixer | grep Left | sed -n 2p | cut -d "[" -f3 | sed 's/]//g')
+      if [[ $Status_Vol = on ]]; then
+        echo ""
+      else
+        echo ""
+      fi
+}
+
+# System utils
+
+Mem(){
+	mem=$(free | grep Mem | awk '{print $3/$2 * 100.0}' | awk '{print int($1+0.5)}')
+	echo "$mem"   
+}
+
+Cpu(){
+
+  read cpu a b c previdle rest < /proc/stat
+  prevtotal=$((a+b+c+previdle))
+  sleep 0.5
+  read cpu a b c idle rest < /proc/stat
+  total=$((a+b+c+idle))
+  cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ));
+
+     echo "$cpu"
+}
+
+Disk_Root(){
+	btrfs filesystem usage / | grep allocated: | sed -n 1p | awk '{print $3}' | sed 's/GiB//g'
+}
+
+Disk_Home(){
+	btrfs filesystem usage /home | grep allocated: | sed -n 1p | awk '{print $3}' | sed 's/GiB//g'
+}
+
+Core1(){
+	sensors | grep Core | sed -n 1p | awk '{print $3}' | sed 's/[+°C]//g'
+}
+
+Core2(){
+	sensors | grep Core | sed -n 2p | awk '{print $3}' | sed 's/[+°C]//g'
+}
+
+Calendar(){
+day="${1%%.*}"
+month="${1#*.}"
+month="${month%.*}"
+month=$((month+1)) # for some reason eww gives the month as a zero-based integer
+year="${1##*.}"
+
+IFS=$'\n'
+appointments=( $(calcurse --input-datefmt 4 --format-apt "%m\n" --format-recur-apt "%m\n" -d "${year}-${month}-${day}" | tail -n +2) )
+appointment_times=( $(calcurse --input-datefmt 4 --format-apt "%S - %E\n" --format-recur-apt "%S - %E\n" -d ${year}-${month}-${day} | tail -n +2) )
+
+# Sort these by approximate expected duration and run in parallel to gain execution time
+eww update appointment_times="$(printf '%s\n' "${appointment_times[@]}")" &
+eww update appointment_names="$(printf '%s\n' "${appointments[@]}")" &
+eww update month_cal="$(date --date="${year}-${month}-${day}" +%b)" &
+eww update weekday_cal="$(date --date="${year}-${month}-${day}" +%a)" &
+eww update day_num_cal="$day" &
+eww update year_cal="$year" &
+}
+
+case $1 in
+		NOTIFY) Music_Notify 	;;
+		P_P) Play_Pause 	;;
+		ARTIST) Artist 	;;
+		TITLE) Title ;;
+		M_PROGRESS) Music_Progress 	;;
+        PLAYER) Player  ;;
+		VOLUME) Get_Vol 	;;
+		VOLUME_ICON) Volume_Icon 	;;
+		MEM) Mem 	;;
+		CPU) Cpu 		;;
+		ROOT) Disk_Root 	;;
+		HOME) Disk_Home 	;;
+		CORE1) Core1 	;;
+		CORE2) Core2 	;;
+		DOWN) Download 	;;
+		UP) Upload 	;;	
+		SPOT) Spot 	;;
+		ART) Get_Art 	;;
+        CALENDAR) Calendar  ;;       
+	esac
+

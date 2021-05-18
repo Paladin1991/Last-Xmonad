@@ -1,0 +1,654 @@
+@import "colors.scss";
+
+* {
+  all: unset;
+}
+
+//Global Styles
+
+window {
+  background-color: transparent;
+  color: $font;
+  font-family: monospace;
+}
+
+button { 
+  all: unset;
+  background-image: radial-gradient(circle farthest-side at center, transparent 100%, transparent 100%);
+  transition: 1000ms, background-size 1000ms cubic-bezier(0, 0, 0.2, 2), background-image 100ms cubic-bezier(0, 0, 0.2, 3);
+  padding: 10px;
+}
+
+tooltip {
+  background-color: $base;
+  font-family: Ubuntu;
+  font-size: 16px;
+  color: $font;
+}
+
+@mixin inline-animation($duration) {
+  $name: inline-#{unique-id()};
+  @keyframes #{$name} {
+    @content;
+  }
+
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-iteration-count: infinite;
+}
+
+/// Display
+
+.display {
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 20px;
+  min-width: 20px;
+  margin: 5px;
+
+}
+
+.display:hover {
+  background-size: 30px;
+  box-shadow: inset 10px 0px rgba($highlight, 0.4); 
+}
+
+.display:active {
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center  
+}
+
+.clock_left {
+  font-family: Monaco Bold;
+  font-size: 130px;
+}
+
+.clock_left:hover {
+  color: $highlight;
+  font-family: Monaco Bold;
+  font-size: 130px;
+}
+
+.info_left {
+  font-family: monospace;
+  font-size: 18px;
+}
+
+.num-desk {
+  font-size: 20px;
+  border-style: solid; 
+  border-width: 2px;
+  border-radius: 5px; 
+  border-color: $highlight;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.works {
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 20px;
+  min-width: 10px;
+}
+
+.mybar {
+  background-color: transparent; 
+}
+
+.separator {
+  margin-left: 880px;
+}
+
+.mybar scale trough highlight {
+  all: unset;
+  background: $highlight;
+  color: #000000;
+  border-radius: $defalt-radius;
+}
+
+.mybar scale trough {
+  all: unset;
+  background-color: rgba(200, 200, 200, 0.6);
+  border-radius: $defalt-radius;
+  min-height: 10px;
+  min-width: 80px;
+  margin-right: 10px;
+}
+
+/// Hobby
+
+.close {
+  background-image: url('Icons/Display/close.svg');
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-color: rgba($base, 0.0);
+  min-height: 10px;
+  min-width: 4px;
+}
+
+.close:hover {
+  background-image: url('Icons/Display/close-hover.svg');
+  background-size: 27px;
+}
+
+.hobby { 
+  background-color: rgba($base, 0.0);
+}
+
+.face {
+  background-image: url('Icons/Candy/face.svg');
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(#6399ff, 0.5);
+  min-height: 130px;
+  min-width: 200px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 2.5px;
+  border-radius: 0px;
+}
+
+.face:hover {
+  background-image: url('Icons/Candy/face-hover.svg');
+  background-size: 130px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  background-color: rgba(#6399ff, 0.3);
+
+}
+
+.insta {
+  background-image: url('Icons/Candy/insta.svg');
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(#ff6060, 0.5);
+  min-height: 130px;
+  min-width: 250px;
+  margin-left: 2.5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  border-radius: 0px;
+}
+
+.insta:hover {
+  background-image: url('Icons/Candy/insta-hover.svg');
+  background-size: 130px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  background-color: rgba(#ff6060, 0.3);
+}
+
+.tube {
+  background-image: url('Icons/Candy/tube.svg');
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(#ff2222, 0.5);
+  min-height: 100px;
+  min-width: 250px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-right: 2.5px;
+  border-radius: 0px;
+}
+
+.tube:hover {
+  background-image: url('Icons/Candy/tube-hover.svg');
+  background-size: 130px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  background-color: rgba(#ff2222, 0.3);
+}
+
+.twitter {
+  background-image: url('Icons/Candy/twitter.svg');
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(#00fff3, 0.5);
+  min-height: 130px;
+  min-width: 238px;
+  margin-left: 5px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  margin-right: 2.5px;
+  border-radius: 0px;
+}
+
+.twitter:hover {
+  background-image: url('Icons/Candy/twitter-hover.svg');
+  background-size: 130px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  background-color: rgba(#00fff3, 0.3);
+}
+
+.tele {
+  background-image: url('Icons/Candy/tele.svg');
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(#00cfff, 0.5);
+  min-height: 130px;
+  min-width: 250px;
+  margin-left: 2.5px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  border-radius: 0px;
+}
+
+.tele:hover {
+  background-image: url('Icons/Candy/tele-hover.svg');
+  background-size: 130px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  background-color: rgba(#00cfff, 0.3);
+}
+
+.discord {
+  background-image: url('Icons/Candy/discord.svg');
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(#bb69ff, 0.5);
+  margin-left: 2.5px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  min-height: 130px;
+  min-width: 210px;
+  border-radius: 0px;
+}
+
+.discord:hover {
+  background-image: url('Icons/Candy/discord-hover.svg');
+  background-size: 130px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  background-color: rgba(#bb69ff, 0.3);
+  }
+
+.red {
+  background-image: url('Icons/Candy/red.svg');
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(#ff450c, 0.5);
+  min-height: 130px;
+  min-width: 200px;
+  margin-left: 5px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  margin-right: 2.5px;
+  border-radius: 0px;
+}
+
+.red:hover {
+  background-image: url('Icons/Candy/red-hover.svg');
+  background-size: 130px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  background-color: rgba(#ff450c, 0.3);
+}
+
+
+.net {
+  background-image: url('Icons/Candy/net.svg');
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(#ff0000, 0.5);
+  min-height: 130px;
+  min-width: 250px;
+  margin-left: 2.5px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  border-radius: 0px;
+}
+
+.net:hover {
+  background-image: url('Icons/Candy/net-hover.svg');
+  background-size: 130px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  background-color: rgba(#ff0000, 0.3);
+}
+
+
+.git {
+  background-image: url('Icons/Candy/git.svg');
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(#FF6642, 0.5);
+  min-height: 130px;
+  min-width: 250px;
+  margin-left: 5px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  margin-right: 2.5px;
+  border-radius: 0px;
+}
+
+.git:hover {
+  background-image: url('Icons/Candy/git-hover.svg');
+  background-size: 130px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  background-color: rgba(#FF6642, 0.3);
+  
+}
+
+expander {
+  all: unset;
+  // Make up for the translation
+  padding-left: 8px;
+  background-color: $base;
+  font-size: 15px;
+}
+expander title {
+  font-weight: 100;
+}
+expander title:hover {
+  font-weight: bold;
+}
+expander arrow {
+  all: unset;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 25px;
+  min-height: 30px;
+  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+  -gtk-icon-transform: rotate(-90deg) translateY(-8px);
+  color: $base;
+
+}
+expander arrow:dir(rtl) {
+  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+}
+expander arrow:checked {
+  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+  // Since we rotated -90, we have to add this to rotate back
+  -gtk-icon-transform: rotate(0deg) translateX(-8px);
+}
+expander arrow:checked:hover {
+  -gtk-icon-transform: rotate(0deg) translateX(-4px);
+  color: $highlight;
+}
+expander arrow:hover, expander arrow:active {
+  -gtk-icon-transform: rotate(-90deg) translateY(-4px);
+  color: $highlight;
+}
+
+/// Power
+
+.power {
+  background-color: rgba($base, 0.2);
+  padding: 0px;
+  border-radius: 20px
+}
+
+.icon_user {
+  background-size: 500px;
+  background-repeat: no-repeat;
+  background-color: rgba(10, 10, 10, 0.0);
+  background-position: center;
+  min-height: 220px;
+  min-width: 220px;
+  margin-top: 10px;
+}
+
+.icon_user:hover {
+  background-size: 530px;
+  background-repeat: no-repeat;
+  background-color: rgba(10, 10, 10, 0.0);
+  background-position: center;
+}
+
+
+.label-vol {
+  font-size: 25px
+}
+
+.button_power {
+  background-image: url('Icons/Candy/power.svg');
+  background-size: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  min-height: 30px;
+  min-width: 30px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right: 30px;
+}
+
+.button_power:hover {
+  background-image: url('Icons/Candy/power-hover.svg');
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.button_reboot {
+  background-image: url('Icons/Candy/reboot.svg');
+  background-size: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  min-height: 30px;
+  min-width: 30px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right: 30px;
+}
+
+.button_reboot:hover {
+  background-image: url('Icons/Candy/reboot-hover.svg');
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.button_lock {
+  background-image: url('Icons/Candy/lock.svg');
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  min-height: 30px;
+  min-width: 30px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right: 30px;
+}
+
+.button_lock:hover {
+  background-image: url('Icons/Candy/lock-hover.svg');
+  background-size: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.button_exit {
+  background-image: url('Icons/Candy/exit.svg');
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  min-height: 30px;
+  min-width: 30px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right: 30px;
+}
+
+.button_exit:hover {
+  background-image: url('Icons/Candy/exit-hover.svg');
+  background-size: 45px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.button_logout {
+  background-image: url('Icons/Candy/hibernate.svg');
+  background-size: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  min-height: 30px;
+  min-width: 30px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 2px;
+  margin-right: 5px;
+}
+
+.button_logout:hover {
+  background-image: url('Icons/Candy/hibernate-hover.svg');
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.exit button {
+  font-size: 20px;
+  color: $font;
+  background-color: rgba(#121212, 0.4);
+  border-radius: $defalt-radius;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.exit button:hover {
+  color: $highlight;
+  background-color: rgba(#121212, 0.9);
+  border-radius: $defalt-radius;
+}
+
+/// Spotify
+
+.ex-spotify {
+  background-color: transparent;
+}
+
+.playerspotify {
+  background: rgba($base, 0.3)
+}
+
+.icon-spotify {
+  background-size: 140px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  min-height: 120px;
+  min-width: 120px;
+}
+
+.spotiartist {
+  font-size: 35px;
+  margin-top: 10px;
+  margin-left: 20px;
+  color: $highlight
+}
+
+.spotititle {
+  font-size: 15px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.spoti-control-music {
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  min-height: 20px;
+  min-width: 20px;
+  margin-top: 20px;
+  margin-left: 10px
+}
+
+calendar {
+  background-color: transparent;
+  font-size: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+calendar:selected {
+  border-radius: 10px;
+  color: $highlight;
+  background-color: rgba(200, 200, 200, 0.4);
+}
+
+calendar.header {
+  color: $font;
+  font-weight: bold;
+  font-size: 30px;
+  background-color: transparent;
+
+}
+
+calendar.button {
+  background-color: transparent;
+  color: $highlight;
+}
+
+calendar.button:hover {
+  background-color: transparent;
+  color: #F12345;
+}
+
+calendar.highlight {
+  color: $font;
+  background-color: rgba($highlight, 0.2);
+  font-weight: bold;
+}
+
+calendar:indeterminate {
+  color: $base;
+}
+
+.calendar {
+  background-color: transparent;
+}
+
+.calendarwin {
+  background-color: rgba($base, 0.2);
+  color: $font;
+  font-family: Ubuntu Bold;
+  font-size: 14px;
+  border-radius: 0px;
+  padding-left: 82px;
+  padding-right: 82px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-radius: $defalt-radius
+}
+
+.cal-date {
+  font-size: 50px;
+  color: $font;
+  background-color: rgba($highlight, 0.2);
+  padding-right: 50px;
+  padding-left: 50px;
+
+}

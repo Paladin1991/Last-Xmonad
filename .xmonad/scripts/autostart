@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#set -u pipefail
+
+if pgrep polybar; then
+    killall -q polybar
+    polybar -r example &
+else
+    polybar -r example &
+fi
+
+setxkbmap -model abnt2 -layout br -variant abnt2
+picom -b --config ~/.xmonad/scripts/picom.conf
+~/.fehbg &
+exec /usr/lib/xfce4/notifyd/xfce4-notifyd &
+eww daemon
+xsetroot -cursor_name left_ptr &
+
+sleep 10s
+eww open-many left left-clock left-info left-work bar left-info spotify &
