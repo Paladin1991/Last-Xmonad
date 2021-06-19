@@ -49,12 +49,11 @@ myStartupHook = do
     spawn "$HOME/.xmonad/scripts/autostart"
 
 -- Applications --
-myTerm = "termite"
+myTerm = "xfce4-terminal"
 myBrowser = "google-chrome-stable"
 myText_Editor = "subl"
 myFile_Manager = "nemo"
 myChat = "telegram-desktop"
-myPanel = "eww open-many sidebar webapps webapps2 mpd calendar weather sys & feh -g 245x170+1095+250 --zoom 20 ~/Imagens/*"
 
 -- Colours --
 normBord = "#000000"
@@ -63,7 +62,7 @@ focdBord = "#bd93f9"
 myModMask = mod4Mask
 encodeCChar = map fromIntegral . B.unpack
 myFocusFollowsMouse = True
-myBorderWidth = 3
+myBorderWidth = 0
 
 myWorkspaces    = ["1","2","3","4","5","6","7","8","9","10"]
 
@@ -130,8 +129,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_s), spawn $myText_Editor )
   , ((modMask, xK_n), spawn $myFile_Manager )
   , ((modMask, xK_Return), spawn $myTerm )
-  , ((modMask, xK_e), spawn $myPanel)
   , ((modMask .|. shiftMask , xK_r ), spawn $ "xmonad --recompile && xmonad --restart")
+  , ((modMask, xK_a ), spawn $ "eww close hobby")
   , ((modMask .|. shiftMask , xK_e ), io (exitWith ExitSuccess))
   , ((modMask, xK_q), kill )
   , ((modMask, xK_f), sendMessage $ Toggle NBFULL)

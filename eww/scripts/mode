@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Get currente theme
+
+Theme_Current=$(cat ~/.themes/Midday/gtk-3.0/gtk.css | grep @import | cut -d '"' -f2 | cut -d "/" -f2 | grep light | sed 's/.*_//g')
+Normal_Theme=$(cat ~/.themes/Midday/gtk-3.0/gtk.css | grep @import | cut -d '"' -f2 | cut -d "/" -f2 | cut -d '.' -f1)
+Normal_Theme_Eww=$(cat ~/.config/eww/eww.scss | grep @import | cut -d "/" -f2 | cut -d '.' -f1)
+
+if [[ $Theme_Current = light.css ]]; then
+	sed -i "s/_light//g" ~/.themes/Midday/gtk-3.0/gtk.css
+	sed -i "s/_light//g" ~/.config/eww/eww.scss
+	
+else
+	sed -i "s/$Normal_Theme/${Normal_Theme}_light/g" ~/.themes/Midday/gtk-3.0/gtk.css
+	sed -i "s/$Normal_Theme_Eww/${Normal_Theme_Eww}_light/g"  ~/.config/eww/eww.scss
+
+fi

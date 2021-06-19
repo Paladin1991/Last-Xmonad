@@ -1,0 +1,19 @@
+#!/bin/bash
+
+Get_Vol(){
+	amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'
+}
+
+Volume_Icon(){
+	Status_Vol=$(amixer | grep Left | sed -n 2p | cut -d "[" -f3 | sed 's/]//g')
+      if [[ $Status_Vol = on ]]; then
+        echo ""
+      else
+        echo ""
+      fi
+}
+
+case $1 in
+	VOLUME) Get_Vol 	;;
+	VOLUME_ICON) Volume_Icon 	;;
+esac

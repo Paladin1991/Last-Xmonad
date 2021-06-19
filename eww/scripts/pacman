@@ -1,0 +1,38 @@
+#!/bin/bash
+
+updates=$(checkupdates  2> /dev/null | wc -l)
+cache=$(ls /var/cache/pacman/pkg | wc -l)
+trash=$(ls ~/.local/share/Trash/files | wc -l)
+
+UPD()
+{
+	if [[ $updates > 0 ]]; then
+		echo " $updates"
+	else
+		echo ""
+	fi
+}
+
+CCH()
+{
+	if [[ $cache > 100 ]]; then
+		echo " $cache"
+	else
+		echo ""
+	fi
+}
+
+TSH()
+{
+	if [[ $trash > 1 ]]; then
+		echo " $trash"
+	else
+		echo ""
+	fi
+}
+
+case $1 in
+	UP) UPD 	;;
+	CACHE) CCH 	;;
+	TRASH) TSH 	;;
+esac

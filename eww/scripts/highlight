@@ -1,0 +1,65 @@
+#!/bin/bash
+
+
+# Get currente theme
+Eww_Currente_Theme=$(cat ~/.config/eww/eww.scss | grep @import | cut -d '"' -f2)
+Gtk_Currente_Theme=$(cat ~/.themes/Midday/gtk-3.0/gtk.css | grep @import | cut -d '"' -f2)
+
+# Get currente highlight color
+Eww_Currente_Color=$(cat ~/.config/eww/$Eww_Currente_Theme | grep highlight | cut -d '#' -f2 | sed 's/;//g')
+Gtk_Currente_Color=$(cat ~/.themes/Midday/gtk-3.0/$Gtk_Currente_Theme | grep highlight | cut -d '#' -f2 | sed 's/;//g')
+
+# Colors
+
+# Red #DC143C
+red="DC143C"
+# Green #00FA9A
+green="00FA9A"
+# Purple #A020F0
+purple="A020F0"
+# Orange #FF8C00
+orange="FF8C00"
+# Blue #00d2ff
+blue="00d2ff"
+# Cyan #00FFFF
+cyan="00FFFF"
+
+RED(){
+sed -i "s/$Eww_Currente_Color/$red/g" ~/.config/eww/$Eww_Currente_Theme
+sed -i "s/$Gtk_Currente_Color/$red/g" ~/.themes/Midday/gtk-3.0/$Gtk_Currente_Theme
+}
+
+GREEN(){
+sed -i "s/$Eww_Currente_Color/$green/g" ~/.config/eww/$Eww_Currente_Theme
+sed -i "s/$Gtk_Currente_Color/$green/g" ~/.themes/Midday/gtk-3.0/$Gtk_Currente_Theme
+}
+
+PURPLE(){
+sed -i "s/$Eww_Currente_Color/$purple/g" ~/.config/eww/$Eww_Currente_Theme
+sed -i "s/$Gtk_Currente_Color/$purple/g" ~/.themes/Midday/gtk-3.0/$Gtk_Currente_Theme
+}
+
+ORANGE(){
+sed -i "s/$Eww_Currente_Color/$orange/g" ~/.config/eww/$Eww_Currente_Theme
+sed -i "s/$Gtk_Currente_Color/$orange/g" ~/.themes/Midday/gtk-3.0/$Gtk_Currente_Theme
+}
+
+BLUE(){
+sed -i "s/$Eww_Currente_Color/$blue/g" ~/.config/eww/$Eww_Currente_Theme
+sed -i "s/$Gtk_Currente_Color/$blue/g" ~/.themes/Midday/gtk-3.0/$Gtk_Currente_Theme
+}
+
+CYAN(){
+sed -i "s/$Eww_Currente_Color/$cyan/g" ~/.config/eww/$Eww_Currente_Theme
+sed -i "s/$Gtk_Currente_Color/$cyan/g" ~/.themes/Midday/gtk-3.0/$Gtk_Currente_Theme
+}
+
+
+case $1 in
+	red) RED 	;;
+	green) GREEN 	;;
+	purple) PURPLE 	;;
+	orange) ORANGE 	;;
+	blue) BLUE 	;;
+	cyan) CYAN 	;;
+esac

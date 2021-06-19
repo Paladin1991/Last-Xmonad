@@ -1,0 +1,86 @@
+#!/bin/bash
+
+Spot(){
+
+    if ps -C spotify > /dev/null; then
+        PLAYER="spotify"
+    elif ps -C spotifyd > /dev/null; then
+        PLAYER="spotifyd"
+    fi
+
+   
+
+    if [ "$PLAYER" = "spotify" ] || [ "$PLAYER" = "spotifyd" ]; then
+        ARTIST=$(playerctl metadata artist)
+        TRACK=$(playerctl metadata title)
+        STATUS=$(playerctl -p spotify status)
+        SHUFFLE=$(playerctl shuffle)
+				
+            if [[ $STATUS = Playing ]]; then
+                STATUS="Icons/Candy/pause.svg"
+            else
+                STATUS="Icons/Candy/play.svg"                
+            fi
+            
+        if [[ "$PLAYER" = "spotify" ]]; then
+          printf "$STATUS"
+        else
+          printf "$STATUS"
+        fi
+    fi
+
+}
+
+Get_Art()
+{
+tmp_dir="/tmp/spotify"
+tmp_cover_path=$tmp_dir/cover.png
+
+if [ ! -d $tmp_dir ]; then
+	mkdir -p $tmp_dir
+fi
+
+artlink="$(playerctl metadata mpris:artUrl | sed -e 's/open.spotify.com/i.scdn.co/g')"
+
+if [ $(playerctl metadata mpris:artUrl) ]; then
+	curl -s "$artlink" --output $tmp_cover_path;
+else cp ~/.config/eww/Icons/Panel/music-hover.svg $tmp_cover_path;
+fi
+
+}
+
+player=$(playerctl -l | grep spotify)
+
+artist()
+{
+ if [[ $player = spotify ]]; then
+    playerctl metadata artist
+ else
+    echo "No playing"
+ fi
+}
+
+title()
+{
+ if [[ $player = spotify ]]; then
+    playerctl metadata title
+ else
+    echo "No playing"
+ fi
+}
+
+art()
+{
+if [[ $player = spotify ]]; then
+    while :; do
+        Get_Art; sleep 1
+    done
+fi
+}
+
+case $1 in 
+	SPOT) Spot 	;;
+	ART) art   ;;
+    ARTIST) artist  ;;
+    TITLE) title    ;;
+esac
