@@ -1,0 +1,86 @@
+configuration {
+  show-icons:           true;
+  display-drun:         "";
+  drun-display-format:  "{name}";
+  
+}
+
+window {
+  background-color:     rgba(10, 10, 10, 0.2);
+  width:                64%;
+  height:               59%; 
+  location:             0;
+  y-offset:             -26;
+  x-offset:             10; 
+  padding:              10px;
+  children:             [ listview, inputbar ];
+}
+
+prompt {
+  padding:              0 0 0 8px;
+  background-color:     transparent;
+  color:                #FFFFFF;
+}
+
+entry {
+  background-color:     transparent;
+  color:                #FFFFFF;
+  expand:               true;
+  horizontal-align:     0;
+  placeholder:          "Search";
+  padding:              0 0 0 5px;
+  blink:                true;
+}
+
+inputbar {
+  expand:               false;
+	border:               2px;
+  border-radius:        20px;
+	border-color:         transparent;
+  background-color:     rgba(200, 200,200, 0.2);
+  color:                transparent;
+  padding:              8px;
+  margin:               20px 20px 20px 20px;
+}
+
+listview {
+  background-color:     transparent;
+  cycle:                false;
+  layout:               vertical;
+  dynamic:              true;
+  columns:              6;
+}
+
+mainbox {
+    children:           [ inputbar, listview ];
+    spacing:            20%;
+    padding:            20%;
+}
+
+element {
+  background-color:     transparent;
+  orientation:          vertical;
+  spacing:              4px;
+  border-radius:        0%;
+  padding:              8px;
+  margin:               4px;
+}
+
+element-icon {
+  size:                 80px;
+}
+
+element-text {
+    expand:             true;
+    horizontal-align:   0.5;
+    vertical-align:     0.5;
+    margin:             0 4px;
+    text-color:         #FFFFFF;
+}
+
+element.selected {
+  background-color:     rgba(200, 200, 200, 0.5);
+  text-color:           #FFFFFF;
+  border:               0% 0% 0% 0%;
+  border-radius:        0px;
+}
