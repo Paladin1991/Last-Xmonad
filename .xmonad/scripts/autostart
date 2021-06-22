@@ -1,9 +1,8 @@
 #!/bin/bash
 
-
 setxkbmap -model abnt2 -layout br -variant abnt2
 picom &
-~/.fehbg &
+#~/.fehbg &
 exec /usr/lib/xfce4/notifyd/xfce4-notifyd &
 eww daemon
 xsetroot -cursor_name left_ptr &
@@ -11,7 +10,12 @@ sh ~/.config/eww/scripts/spotify ART &
 
 while true; do
     if eww ping; then
-		eww open-many bottom-bar disp
+		eww open-many bottom-bar disp works
 		break
 	fi
 done &
+
+while true; do
+  feh --randomize --bg-fill ~/Imagens/*
+  sleep 1m
+done

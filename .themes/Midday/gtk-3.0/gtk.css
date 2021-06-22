@@ -141,7 +141,7 @@ label selection {
 }
 
 label:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 tab label:disabled,
@@ -161,7 +161,7 @@ assistant .sidebar {
 assistant .sidebar label {
   min-height: 32px;
   padding: 0 12px;
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
   font-weight: 500;
 }
 
@@ -218,7 +218,7 @@ spinbutton:disabled:not(.vertical),
 entry:disabled {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: alpha(@base, 0.8);
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 spinbutton.flat:not(.vertical), notebook > stack:not(:only-child) entry:not(.search),
@@ -242,9 +242,9 @@ entry.flat:focus {
 spinbutton.flat:disabled:not(.vertical), notebook > stack:not(:only-child) entry:disabled:not(.search),
 notebook > stack:not(:only-child) spinbutton:disabled:not(.vertical), messagedialog entry:disabled, colorchooser .popover.osd spinbutton:disabled:not(.vertical), entry.preferences-search:disabled, layoutpane entry.search:disabled, editortweak entry.search:disabled, .raven .raven-background spinbutton:disabled:not(.vertical), #login_window entry:disabled,
 entry.flat:disabled {
-  box-shadow: inset 0 -1px rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 -1px alpha(@base, 0.12);
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 spinbutton:not(.vertical) image,
@@ -260,7 +260,7 @@ entry image:active {
 
 spinbutton:not(.vertical) image:disabled,
 entry image:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 spinbutton:not(.vertical) image.left,
@@ -316,7 +316,7 @@ spinbutton.error:disabled:not(.vertical),
 entry.error:disabled {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: alpha(@base, 0.8);
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 spinbutton.error.flat:not(.vertical), notebook > stack:not(:only-child) entry.error:not(.search),
@@ -339,9 +339,9 @@ entry.error.flat:focus {
 spinbutton.error.flat:disabled:not(.vertical), notebook > stack:not(:only-child) entry.error:disabled:not(.search),
 notebook > stack:not(:only-child) spinbutton.error:disabled:not(.vertical), messagedialog entry.error:disabled, colorchooser .popover.osd spinbutton.error:disabled:not(.vertical), entry.error.preferences-search:disabled, layoutpane entry.error.search:disabled, editortweak entry.error.search:disabled, .raven .raven-background spinbutton.error:disabled:not(.vertical), #login_window entry.error:disabled,
 entry.error.flat:disabled {
-  box-shadow: inset 0 -1px rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 -1px alpha(@base, 0.12);
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 spinbutton.error:not(.vertical) image,
@@ -357,7 +357,7 @@ entry.error image:active {
 
 spinbutton.error:not(.vertical) image:disabled,
 entry.error image:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 spinbutton.warning:not(.vertical),
@@ -379,7 +379,7 @@ spinbutton.warning:disabled:not(.vertical),
 entry.warning:disabled {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-color: alpha(@base, 0.8);
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 spinbutton.warning.flat:not(.vertical), notebook > stack:not(:only-child) entry.warning:not(.search),
@@ -402,9 +402,9 @@ entry.warning.flat:focus {
 spinbutton.warning.flat:disabled:not(.vertical), notebook > stack:not(:only-child) entry.warning:disabled:not(.search),
 notebook > stack:not(:only-child) spinbutton.warning:disabled:not(.vertical), messagedialog entry.warning:disabled, colorchooser .popover.osd spinbutton.warning:disabled:not(.vertical), entry.warning.preferences-search:disabled, layoutpane entry.warning.search:disabled, editortweak entry.warning.search:disabled, .raven .raven-background spinbutton.warning:disabled:not(.vertical), #login_window entry.warning:disabled,
 entry.warning.flat:disabled {
-  box-shadow: inset 0 -1px rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 -1px alpha(@base, 0.12);
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 spinbutton.warning:not(.vertical) image,
@@ -420,7 +420,7 @@ entry.warning image:active {
 
 spinbutton.warning:not(.vertical) image:disabled,
 entry.warning image:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 spinbutton:not(.vertical) progress,
@@ -477,12 +477,12 @@ treeview entry:focus {
   margin: 2px;
   border-radius: 9999px;
   box-shadow: none;
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: alpha(@base, 0.12);
   color: @font;
 }
 
 .entry-tag:hover, .documents-entry-tag:hover, .photos-entry-tag:hover {
-  background-image: image(rgba(255, 255, 255, 0.12));
+  background-image: image(alpha(@base, 0.12));
 }
 
 :dir(ltr) .entry-tag, :dir(ltr) .documents-entry-tag, :dir(ltr) .photos-entry-tag {
@@ -556,7 +556,7 @@ button:active {
 
 button:disabled {
   box-shadow: none;
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: alpha(@base, 0.12);
   color: alpha(@font, 0.3);
 }
 
@@ -709,7 +709,7 @@ button.flat.text-button.image-button {
 
 infobar.info button:disabled, infobar.question button:disabled, infobar.warning button:disabled, infobar.error button:disabled, row:selected
 button:disabled {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: alpha(@base, 0.12);
   color: alpha(@font, 0.3);
 }
 
@@ -758,38 +758,38 @@ button.osd:disabled {
 
 
 button.suggested-action {
-  background-color: #01A299;
+  background-color: alpha(@base, 0.12);
   color: @font;
 }
 
 
 button.suggested-action:disabled {
   box-shadow: none;
-  background-color: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.5);
+  background-color: alpha(@base, 0.12);
+  color: alpha(@font, 0.5);
 }
 
 
 button.suggested-action:checked {
-  background-color: #4dbeb8;
+  background-color: alpha(@base, 0.24);
 }
 
 
 button.suggested-action.flat {
   background-color: transparent;
-  color: #01A299;
+  color: @font;
 }
 
 
 button.suggested-action.flat:disabled {
   box-shadow: none;
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 
 button.suggested-action.flat:checked {
-  background-color: rgba(1, 162, 153, 0.3);
+  background-color: alpha(@base, 0.12);
 }
 
 
@@ -801,8 +801,8 @@ button.destructive-action {
 
 button.destructive-action:disabled {
   box-shadow: none;
-  background-color: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.5);
+  background-color: alpha(@base, 0.12);
+  color: alpha(@font, 0.5);
 }
 
 
@@ -820,7 +820,7 @@ button.destructive-action.flat {
 button.destructive-action.flat:disabled {
   box-shadow: none;
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 
@@ -1048,7 +1048,7 @@ spinbutton:not(.vertical) button.up:dir(rtl), spinbutton:not(.vertical) button.d
 }
 
 spinbutton.vertical:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 spinbutton.vertical:drop(active) {
@@ -1142,7 +1142,7 @@ notebook > stack:not(:only-child) button.combo, .raven .raven-background button.
 }
 
 notebook > stack:not(:only-child) button.combo:hover, .raven .raven-background button.combo:hover, #login_window #user_combobox button:hover {
-  box-shadow: inset 0 -2px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 -2px alpha(@font, 0.5);
 }
 
 notebook > stack:not(:only-child) button.combo:checked, .raven .raven-background button.combo:checked, #login_window #user_combobox button:checked {
@@ -1150,8 +1150,8 @@ notebook > stack:not(:only-child) button.combo:checked, .raven .raven-background
 }
 
 notebook > stack:not(:only-child) button.combo:disabled, .raven .raven-background button.combo:disabled, #login_window #user_combobox button:disabled {
-  box-shadow: inset 0 -1px rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 -1px alpha(@base, 0.12);
+  color: alpha(@font, 0.5);
 }
 
 /************
@@ -1257,7 +1257,7 @@ headerbar {
 
 .titlebar:disabled:not(headerbar) :not(button) > label,
 headerbar:disabled :not(button) > label {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 .titlebar:backdrop:not(headerbar),
@@ -1312,7 +1312,7 @@ headerbar button:not(.suggested-action):not(.destructive-action):checked {
 
 .titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):checked:disabled,
 headerbar button:not(.suggested-action):not(.destructive-action):checked:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 .titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):checked, .titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):checked:disabled,
@@ -1323,7 +1323,7 @@ headerbar button:not(.suggested-action):not(.destructive-action):checked:disable
 
 .titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):backdrop,
 headerbar button:not(.suggested-action):not(.destructive-action):backdrop {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 .titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):backdrop:hover, .titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):backdrop:active,
@@ -1350,8 +1350,8 @@ headerbar button:not(.suggested-action):not(.destructive-action):backdrop:checke
 .titlebar:not(headerbar) button.suggested-action:disabled, .titlebar:not(headerbar) button.destructive-action:disabled,
 headerbar button.suggested-action:disabled,
 headerbar button.destructive-action:disabled {
-  background-color: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.5);
+  background-color: alpha(@base, 0.12);
+  color: alpha(@font, 0.5);
 }
 
 .selection-mode.titlebar:not(headerbar),
@@ -1376,7 +1376,7 @@ headerbar.selection-mode button:not(.suggested-action):not(.destructive-action) 
 
 .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):disabled,
 headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):checked,
@@ -1387,7 +1387,7 @@ headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):
 
 .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):checked:disabled,
 headerbar.selection-mode button:not(.suggested-action):not(.destructive-action):checked:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 .selection-mode.titlebar:not(headerbar) button:not(.suggested-action):not(.destructive-action):backdrop,
@@ -1654,7 +1654,7 @@ treeview.view.separator {
 treeview.view:drop(active) {
   border-style: solid none;
   border-width: 1px;
-  border-color: #01A299;
+  border-color: @highlight;
 }
 
 treeview.view:drop(active).after {
@@ -1710,7 +1710,7 @@ treeview.view.progressbar:selected {
 }
 
 treeview.view.trough {
-  border-bottom: 4px solid rgba(66, 133, 244, 0.3);
+  border-bottom: 4px solid alpha(@highlight, 0.3);
   box-shadow: none;
   background-color: transparent;
 }
@@ -1834,7 +1834,7 @@ menu menuitem:hover,
 menu menuitem:disabled,
 .menu menuitem:disabled,
 .context-menu menuitem:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 menu menuitem arrow,
@@ -2165,7 +2165,7 @@ notebook > header tab:checked {
 }
 
 notebook > header tab:checked:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 notebook > header tab:checked.reorderable-page {
@@ -2258,7 +2258,7 @@ scrollbar slider {
   border: 4px solid transparent;
   border-radius: 9999px;
   background-clip: padding-box;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: alpha(@font, 0.5);
 }
 
 scrollbar slider:hover {
@@ -2305,7 +2305,7 @@ scrollbar.overlay-indicator:not(.dragging):not(.hovering) button {
   margin: 3px;
   border: 1px solid rgba(48, 48, 48, 0.3);
   border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: alpha(@font, 0.5);
   background-clip: padding-box;
   -gtk-icon-source: none;
 }
@@ -2331,7 +2331,7 @@ scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical button {
 }
 
 scrollbar.overlay-indicator.dragging, scrollbar.overlay-indicator.hovering {
-  background-color: rgba(48, 48, 48, 0.9);
+  background-color: alpha(@base, 0.9);
 }
 
 scrollbar.horizontal slider {
@@ -2598,17 +2598,17 @@ radio:indeterminate {
 
 
 radio {
-  border-image-source: -gtk-gradient(radial, center center, 0, center center, 0.001, to(#01A299), to(transparent));
+  border-image-source: -gtk-gradient(radial, center center, 0, center center, 0.001, to(@highlight), to(transparent));
 }
 
 
 radio:checked:not(:indeterminate) {
-  border-image-source: -gtk-gradient(radial, center center, 0, center center, 0.125, to(#01A299), to(transparent));
+  border-image-source: -gtk-gradient(radial, center center, 0, center center, 0.125, to(@highlight), to(transparent));
 }
 
 
 radio:checked:not(:indeterminate):disabled {
-  border-image-source: -gtk-gradient(radial, center center, 0, center center, 0.125, to(rgba(1, 162, 153, 0.5)), to(transparent));
+  border-image-source: -gtk-gradient(radial, center center, 0, center center, 0.125, to(alpha(@highlight, 0.5)), to(transparent));
 }
 
 window.background:not(.csd) > widget > checkbutton > check,
@@ -2711,13 +2711,13 @@ treeview.view radio:disabled {
 treeview.view check:checked, treeview.view check:indeterminate,
 treeview.view radio:checked,
 treeview.view radio:indeterminate {
-  color: #01A299;
+  color: @font;
 }
 
 treeview.view check:checked:disabled, treeview.view check:indeterminate:disabled,
 treeview.view radio:checked:disabled,
 treeview.view radio:indeterminate:disabled {
-  color: rgba(1, 162, 153, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 treeview.view check:selected,
@@ -2739,13 +2739,13 @@ treeview.view radio:selected:disabled {
 treeview.view check:selected:checked, treeview.view check:selected:indeterminate,
 treeview.view radio:selected:checked,
 treeview.view radio:selected:indeterminate {
-  color: #01A299;
+  color: @font;
 }
 
 treeview.view check:selected:checked:disabled, treeview.view check:selected:indeterminate:disabled,
 treeview.view radio:selected:checked:disabled,
 treeview.view radio:selected:indeterminate:disabled {
-  color: rgba(1, 162, 153, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 treeview.view radio:checked {
@@ -2798,12 +2798,12 @@ scale trough {
 }
 
 scale trough:disabled {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: alpha(@base, 0.12);
 }
 
 scale highlight {
   transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1);
-  background-color: #01A299;
+  background-color: transparent;
 }
 
 scale highlight:disabled {
@@ -2837,28 +2837,28 @@ scale slider:disabled {
 }
 
 scale slider:hover {
-  background-color: rgba(1, 162, 153, 0.08);
+  background-color: alpha(@highlight, 0.08);
 }
 
 scale slider:focus {
-  background-color: rgba(1, 162, 153, 0.12);
+  background-color: alpha(@highlight, 0.12);
 }
 
 scale slider:focus:hover {
-  background-color: rgba(1, 162, 153, 0.16);
+  background-color: alpha(@highlight, 0.16);
 }
 
 scale slider:active {
   transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1), background-size 0, background-image 0;
   animation: scale_ripple_effect 225ms cubic-bezier(0, 0, 0.2, 1) forwards;
   background-size: auto, 0% 0%;
-  background-color: rgba(1, 162, 153, 0.08);
-  color: rgba(1, 162, 153, 0.12);
+  background-color: alpha(@highlight, 0.08);
+  color: alpha(@highlight, 0.12);
 }
 
 scale marks label,
 scale value {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 scale marks {
@@ -2983,7 +2983,7 @@ scale.color.vertical:dir(rtl) slider {
  * Progress bars *
  *****************/
 progressbar {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
   font-size: smaller;
 }
 
@@ -3049,7 +3049,7 @@ levelbar block.full {
 }
 
 levelbar block.empty {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: alpha(@base, 0.12);
 }
 
 /****************
@@ -3290,7 +3290,7 @@ calendar {
 }
 
 calendar:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 calendar:selected {
@@ -3438,7 +3438,7 @@ placessidebar row:selected {
 }
 
 placessidebar row:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 placessidebar row image.sidebar-icon:dir(ltr) {
@@ -3460,7 +3460,7 @@ placessidebar row label.sidebar-label:dir(rtl) {
 placessidebar row.sidebar-placeholder-row {
   min-height: 2px;
   padding: 0 8px;
-  background-image: image(#01A299);
+  background-image: image(#F12345);
   background-clip: content-box;
 }
 
@@ -3552,7 +3552,7 @@ infobar {
 }
 
 infobar.info {
-  background-color: #34A853;
+  background-color: transparent;
 }
 
 infobar.question {
@@ -3585,7 +3585,7 @@ tooltip.background {
 }
 
 tooltip decoration {
-  background-color: transparent;
+  background-color: @highlight;
 }
 
 tooltip label {
@@ -3783,7 +3783,7 @@ row:selected label:disabled, label:disabled:selected, .view selection:disabled, 
 entry selection:disabled, modelbutton.flat:disabled:selected,
 .menuitem.button.flat:disabled:selected, popover.background.menu button:disabled:checked,
 popover.background button.model:disabled:checked, row:disabled:selected, calendar:disabled:selected, text:disabled:selected, .budgie-menu button:disabled:checked {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 .monospace {
@@ -3795,7 +3795,7 @@ popover.background button.model:disabled:checked, row:disabled:selected, calenda
  **********************/
 cursor-handle {
   border-radius: 9999px;
-  background-color: #01A299;
+  background-color: @highlight;
   background-image: none;
 }
 
@@ -3998,8 +3998,8 @@ headerbar .nautilus-canvas-item.subtitle:selected, .budgie-notification .nautilu
 }
 
 .disk-space-display.free {
-  background-color: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.12);
+  background-color: alpha(@base, 0.12);
+  color: alpha(@base, 0.12);
 }
 
 .search-information {
@@ -4068,7 +4068,7 @@ dialog.background > box.dialog-vbox.vertical > grid.horizontal > box.horizontal:
 }
 
 .nautilus-menu-sort-heading:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 .nautilus-window paned > separator {
@@ -4114,7 +4114,7 @@ dialog.background > box.dialog-vbox.vertical > grid.horizontal > box.horizontal:
 
 .gedit-search-slider .linked > entry .gedit-search-entry-occurrences-tag {
   all: unset;
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 .gedit-search-slider .linked > entry:dir(ltr) {
@@ -4512,7 +4512,7 @@ button.dzlmenubuttonitem {
 }
 
 button.dzlmenubuttonitem:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 idelayoutstackheader {
@@ -4880,25 +4880,26 @@ window.background > box.vertical > scrolledwindow > widget toolbar button {
  * Chromium *
  ************/
 window.background.chromium {
-  background-color: alpha(@base, 0.6);
+  background-color: alpha(@base, 1);
+  color: alpha(@font, 0.8)
 }
 
 window.background.chromium entry,
 window.background.chromium > button:not(.suggested-action):not(.destructive-action) {
-  border: 1px solid rgba(0, 0, 0, 0.26);
+  border: 10px solid alpha(@highlight, 0.1);
 }
 
 window.background.chromium > button {
-  box-shadow: none;
+  box-shadow: 0 14px 14px rgba(0, 0, 0, 0.25), 0 10px 5px rgba(0, 0, 0, 0.22);
   background-size: auto;
 }
 
 window.background.chromium > button:hover {
-  background-image: image(alpha(@base, 0.08));
+  background-image: image(alpha(@highlight, 0.08));
 }
 
 window.background.chromium > button:active {
-  background-image: image(alpha(@base, 0.24));
+  background-image: image(alpha(@base, 0.6));
 }
 
 window.background.chromium headerbar button:active {
@@ -5198,7 +5199,7 @@ UnityPanelWidget:backdrop,
 }
 
 .mate-panel-menu-bar button:checked {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: alpha(@base, 0.12);
 }
 
 PanelToplevel.horizontal > grid > button {
@@ -5210,12 +5211,12 @@ PanelToplevel.vertical > grid > button {
 }
 
 PanelSeparator {
-  color: rgba(255, 255, 255, 0.12);
+  color: alpha(@base, 0.12);
 }
 
 MatePanelAppletFrameDBus {
   border-style: solid;
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: alpha(@base, 0.12);
 }
 
 .mate-panel-menu-bar.horizontal MatePanelAppletFrameDBus {
@@ -5231,7 +5232,7 @@ MatePanelAppletFrameDBus {
 }
 
 .mate-panel-menu-bar menubar > menuitem:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: alpha(@base, 0.12);
   color: @font;
 }
 
@@ -5292,7 +5293,7 @@ PanelApplet.wnck-applet .wnck-pager {
 }
 
 PanelApplet.wnck-applet .wnck-pager:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: alpha(@base, 0.12);
 }
 
 PanelApplet.wnck-applet .wnck-pager:active {
@@ -5354,7 +5355,7 @@ na-tray-applet {
 }
 
 #PanelApplet:selected > box {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: alpha(@base, 0.12);
   color: @font;
 }
 
@@ -5511,7 +5512,7 @@ MsdOsdWindow.background.osd {
 
 MsdOsdWindow.background.osd .trough {
   border-radius: 0;
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: alpha(@base, 0.12);
 }
 
 MsdOsdWindow.background.osd .progressbar {
@@ -5623,7 +5624,7 @@ MsdOsdWindow.background.osd .progressbar {
 }
 
 .workspace-switcher .workspace-layout {
-  border: 0 solid rgba(255, 255, 255, 0.12);
+  border: 0 solid alpha(@base, 0.12);
 }
 
 .top .workspace-switcher .workspace-layout:dir(ltr),
@@ -5643,7 +5644,7 @@ MsdOsdWindow.background.osd .progressbar {
 
 .workspace-switcher .workspace-item,
 .workspace-switcher .workspace-add-button {
-  border: 0 solid rgba(255, 255, 255, 0.12);
+  border: 0 solid alpha(@base, 0.12);
 }
 
 .top .workspace-switcher .workspace-item:dir(ltr),
@@ -5723,7 +5724,7 @@ MsdOsdWindow.background.osd .progressbar {
 }
 
 .budgie-menu button:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 .budgie-menu button:checked:disabled {
@@ -5813,7 +5814,7 @@ popover.background.places-menu row {
 }
 
 .budgie-panel button:checked {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: alpha(@base, 0.12);
 }
 
 .budgie-panel.horizontal button {
@@ -5861,7 +5862,7 @@ popover.background.places-menu row {
 }
 
 .budgie-panel button.flat.launcher:not(:checked) {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 .budgie-panel button.flat.launcher:not(:checked):hover, .budgie-panel button.flat.launcher:not(:checked):active {
@@ -6012,7 +6013,7 @@ frame.raven-frame > border {
 }
 
 .raven .raven-background > overlay > widget > image {
-  color: rgba(255, 255, 255, 0.12);
+  color: alpha(@base, 0.12);
 }
 
 .raven .raven-background grid > label:first-child {
@@ -6118,7 +6119,7 @@ calendar.raven-calendar:selected {
 }
 
 .budgie-polkit-dialog .message {
-  color: rgba(255, 255, 255, 0.5);
+  color: alpha(@font, 0.5);
 }
 
 .budgie-polkit-dialog .failure {
@@ -6269,7 +6270,7 @@ base background color of insensitive widgets */
 @define-color insensitive_bg_color alpha(@base, 0.8);
 /*
 text foreground color of insensitive widgets */
-@define-color insensitive_fg_color rgba(255, 255, 255, 0.5);
+@define-color insensitive_fg_color alpha(@font, 0.5);
 /*
 insensitive text widgets and the like base background color */
 @define-color insensitive_base_color alpha(@base, 0.8);
@@ -6293,7 +6294,7 @@ text/foreground color of selections on backdrop windows */
 @define-color theme_unfocused_selected_fg_color @font;
 /*
 insensitive color on backdrop windows */
-@define-color unfocused_insensitive_color rgba(255, 255, 255, 0.5);
+@define-color unfocused_insensitive_color alpha(@font, 0.5);
 /*
 widgets main borders color */
 @define-color borders rgba(0, 0, 0, 0.26);

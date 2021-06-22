@@ -2,13 +2,28 @@
 	<definitions>
 
   <def name="Calendar">
-   <box class="calendar" orientation="v" space-evenly="true">
+   <box class="calendar" orientation="h" space-evenly="true">
         <box class="calendarwin" orientation="v" space-evenly="false">
           <button onclick="eww close calendar" tooltip="Closer" class="icon-calendar">{{date}}</button>
           <calendar show-day-names="true" show-heading="true"></calendar>
         </box>
       </box>
   </def>
+
+   <def name="Weather">
+      <box orientation="v" class="weather-panel" space-evenly="false" halign="center">
+        <label class="city" text="{{city}}" halign="center" valign="center"></label>
+        <label class="weather-icon" text="{{weathericons}}" halign="center"/>
+        <box orientation="v">
+          <label class="weatherstatus" text="{{weather-status}}" halign="center" valign="start"/>
+          <box orientation="h">
+            <label class="weathertemp" text="{{weather-temp}}" halign="center" valign="start"/>
+            <label class="weatherspeed" text="{{weather-speed}}" halign="center" valign="start"/>
+            <label class="moon" text="{{moon}}" halign="center" valign="start"/>
+          </box>
+        </box>
+      </box>
+    </def>
 
   <!--Settings-->
   <def name="Settings">
@@ -17,6 +32,7 @@
       <label class="settings-user" text="{{User}}"></label>
       <button onclick="eww open calendar & eww close settings" class="settings-clock">{{Time-Settings}}</button>
       <button onclick="sh ~/.config/eww/scripts/mode" class="mode-settings" tooltip="Mode">{{mode}}</button>
+      <button onclick="feh -g 995x510+300+160 --zoom 30 ~/Imagens/* & eww close settings" class="power-button"></button>
       <button onclick="eww open power & eww close settings" class="power-button"></button>
   </box>
   </def>
@@ -53,13 +69,14 @@
 
 		<def name="Bottom-bar">
 			<box orientation="h" class="bottom-bar" space-evenly="false">
-				<button onclick="eww open power" class="power"></button>
-				<button onclick="rofi -theme ~/.config/rofi/launcher.rasi -show drun &" class="menu">   Menu</button>
-				<button onclick="eww open settings" class="settings-button">   Settings</button>
+				<button onclick="rofi -theme ~/.config/rofi/launcher.rasi -show drun &" tooltip="Menu" class="menu"></button>
+				<button onclick="eww open hobby" tooltip="Social (Press Super+a to close)" class="share-button">  Share</button>
+				<button onclick="eww open settings" class="settings-button" tooltip="Settings">   Settings</button>
 					     <box orientation="h" space-evenly="false" class="playerspotify">
+                <label class="separator"></label>
         			   <button onclick="sh ~/.config/eww/scripts/spotify ART & eww open spotify" tooltip="Click once to view the album art!" class="icon-spotify" halign="center" valign="center" style="background-image: url('{{image}}')"></button>
-						    <box class="metadata" orientation="v" space-evenly="false">
-							   <label class="spotify-meta" text=" {{spotify_artist}}"></label>
+						    <box class="metadata" orientation="v" space-evenly="true" vexpand="false" hexpand="false">
+							   <label class="spotify-meta" limit-width="20" text=" {{spotify_artist}}"></label>
 							   <label wrap="false" limit-width="30" class="spotify-meta" text=" {{spotify_title}}"></label>
 						   </box>
 					</box>
@@ -68,11 +85,11 @@
 
 		<def name="Disp">
     		<box orientation="v" class="disp" space-evenly="false">
-      			<button onclick="feh -g 995x510+300+160 --zoom 30 ~/Imagens/* &" class="disp" tooltip="Wallpapers" style="background-image: url('Icons/Panel/image.svg')"></button>
-      			<button onclick="spotify &" class="disp" tooltip="Spotify music" style="background-image: url('Icons/Panel/spotify.svg')"></button>
-      			<button onclick="eww open hobby" class="disp" tooltip="Social (Press Super+a to close)" style="background-image: url('Icons/Panel/share.svg')"></button>
-      			<button onclick="nemo &" class="disp" tooltip="News" style="background-image: url('Icons/Panel/feed.svg')"></button>
-      			<button onclick="nemo &" class="disp" tooltip="Print tools" style="background-image: url('Icons/Panel/camera.svg')"></button>
+      			<button onclick="eww open calendar" class="disp-time" tooltip="Calendar">{{Time-Settings}}</button>
+      			<button onclick="spotify &" class="disp-app" tooltip="Spotify music" style="background-image: url('Icons/Panel/spotify.svg')"></button>
+      			<button onclick="xfce4-terminal &" class="disp-app" tooltip="Terminal" style="background-image: url('Icons/Panel/terminal.svg')"></button>
+      			<button onclick="subl &" class="disp-app" tooltip="Editor" style="background-image: url('Icons/Panel/sublime.svg')"></button>
+      			<button onclick="google-chrome-stable &" class="disp-app" tooltip="Web Browser" style="background-image: url('Icons/Panel/chrome.svg')"></button>
     		</box>
  		 </def>
 
@@ -170,10 +187,38 @@
     </box>
   </def>
 
+  <def name="Base-Dark">
+    <box orientation="v" space-evenly="false" class="highlight">
+      <label text="Base Dark"></label>
+    <box orientation="h" space-evenly="false" class="highlight-colors">
+      <button class="highlight-use01" onclick="sh ~/.config/eww/scripts/base-dark dark1"></button>
+      <button class="highlight-use02" onclick="sh ~/.config/eww/scripts/base-dark dark2"></button>
+      <button class="highlight-use03" onclick="sh ~/.config/eww/scripts/base-dark dark3"></button>
+      <button class="highlight-use04" onclick="sh ~/.config/eww/scripts/base-dark dark4"></button>
+      <button class="highlight-use05" onclick="sh ~/.config/eww/scripts/base-dark dark5"></button>
+      <button class="highlight-use06" onclick="sh ~/.config/eww/scripts/base-dark dark6"></button>
+    </box>
+    </box>
+  </def>
+
+  <def name="Base-Light">
+    <box orientation="v" space-evenly="false" class="highlight">
+      <label text="Base Light"></label>
+    <box orientation="h" space-evenly="false" class="highlight-colors">
+      <button class="highlight-use001" onclick="sh ~/.config/eww/scripts/highlight red"></button>
+      <button class="highlight-use002" onclick="sh ~/.config/eww/scripts/highlight green"></button>
+      <button class="highlight-use003" onclick="sh ~/.config/eww/scripts/highlight purple"></button>
+      <button class="highlight-use004" onclick="sh ~/.config/eww/scripts/highlight orange"></button>
+      <button class="highlight-use005" onclick="sh ~/.config/eww/scripts/highlight blue"></button>
+      <button class="highlight-use006" onclick="sh ~/.config/eww/scripts/highlight cyan"></button>
+    </box>
+    </box>
+  </def>  
+
   <def name="Highligh">
     <box orientation="v" space-evenly="false" class="highlight">
-      <label text="Highlight colors" class="highlight-select"></label>
-    <box orientation="h" space-evenly="false">
+      <label text="Highligh Colors"></label>
+    <box orientation="h" space-evenly="false" class="highlight-colors">
       <button class="highlight-use1" onclick="sh ~/.config/eww/scripts/highlight red"></button>
       <button class="highlight-use2" onclick="sh ~/.config/eww/scripts/highlight green"></button>
       <button class="highlight-use3" onclick="sh ~/.config/eww/scripts/highlight purple"></button>
@@ -181,12 +226,13 @@
       <button class="highlight-use5" onclick="sh ~/.config/eww/scripts/highlight blue"></button>
       <button class="highlight-use6" onclick="sh ~/.config/eww/scripts/highlight cyan"></button>
     </box>
-  </box>
+    </box>
   </def>
  	
 	</definitions> 
 
 <variables>
+
     <script-var name="spotify_artist" interval="1s">sh ~/.config/eww/scripts/spotify ARTIST</script-var>
     <script-var name="spotify_title" interval="1s">sh ~/.config/eww/scripts/spotify TITLE</script-var>
     <script-var name="spot-status" interval="1s">sh ~/.config/eww/scripts/spotify SPOT</script-var>
@@ -211,6 +257,20 @@
 
     <!--Data exibida no calendario-->
     <script-var name="date" interval="72h">date '+%Y'</script-var>
+
+    <!--Icone que representa o status do clima-->
+    <script-var name="weathericons" interval="1s">curl wttr.in/Criciuma?format=%c</script-var>
+    <!--Nome da cidade de onde a previsao do clima esta sendo feita-->
+    <script-var name="city" interval="24h">curl wttr.in/Criciuma?format=%l</script-var>
+    <!--Status do clima-->
+    <script-var name="weather-status" interval="1h">curl wttr.in/Criciuma?format=%C</script-var>
+    <!--Temperatura-->
+    <script-var name="weather-temp" interval="1h">curl wttr.in/Criciuma?format=%t</script-var>
+    <!--Velocidade do vento-->
+    <script-var name="weather-speed" interval="1h">curl wttr.in/Criciuma?format=%w</script-var>
+    <!--Fazes da lua-->
+    <script-var name="moon" interval="1h">curl wttr.in/Criciuma?format=%m</script-var>
+    
 </variables>
 
 <windows>
@@ -249,7 +309,7 @@
 
     <!--Music--><!--Spotify-->
     <window name="spotify" stacking="bg">
-      <geometry x="1074" y="310" width="0" height="0"/>
+      <geometry x="1075" y="310" width="0" height="0"/>
       <widget>
       <box orientation="v" space-evenly="false">
         <Spotify/>
@@ -260,7 +320,7 @@
     </window>
 
     <window name="settings" stacking="bg">
-      <geometry x="298" y="410" width="0" height="0"/>
+      <geometry x="298" y="430" width="0" height="0"/>
       <widget>
       <box orientation="v" space-evenly="false" class="settings">
         <Settings/>
@@ -270,11 +330,25 @@
       </widget>
     </window>
 
+    <window name="style" stacking="bg">
+      <geometry x="298" y="430" width="0" height="0"/>
+      <widget>
+      <box orientation="v" space-evenly="false" class="settings">
+        <Base-Dark/>
+        <Base-Light/>
+        <Highligh/>
+      </box>
+      </widget>
+    </window>
+
     <!--Calendar-->
     <window name="calendar" stacking="bg">
       <geometry x="300" y="160" width="0" height="0"/>
       <widget>
+        <box orientation="h" space-evenly="false" class="settings">
           <Calendar/>
+          <Weather/>
+        </box>
       </widget>
     </window>
 

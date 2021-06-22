@@ -62,7 +62,7 @@ focdBord = "#bd93f9"
 myModMask = mod4Mask
 encodeCChar = map fromIntegral . B.unpack
 myFocusFollowsMouse = True
-myBorderWidth = 0
+myBorderWidth = 1
 
 myWorkspaces    = ["1","2","3","4","5","6","7","8","9","10"]
 
@@ -97,7 +97,7 @@ myManageHook = composeAll . concat $
 
 
 
-myLayout = spacingRaw True (Border 10 10 10 10) True (Border 10 10 10 10) True $ avoidStruts $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ tiled ||| Mirror tiled ||| spiral (6/7)  ||| ThreeColMid 1 (3/100) (1/2) ||| Full
+myLayout = spacingRaw True (Border 0 0 0 0) True (Border 5 5 5 5) True $ avoidStruts $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ tiled ||| Mirror tiled ||| spiral (6/7)  ||| ThreeColMid 1 (3/100) (1/2) ||| Full
 
     where
         tiled = Tall nmaster delta tiled_ratio
@@ -205,7 +205,7 @@ main = do
             myBaseConfig
 
                 {startupHook = myStartupHook
-, layoutHook = gaps [(U,15), (D,15), (R,15), (L,15)] $ myLayout ||| layoutHook myBaseConfig
+, layoutHook = gaps [(U,5), (D,5), (R,5), (L,5)] $ myLayout ||| layoutHook myBaseConfig
 , manageHook = manageSpawn <+> myManageHook <+> manageHook myBaseConfig
 , modMask = myModMask
 , borderWidth = myBorderWidth

@@ -9,9 +9,11 @@ Normal_Theme_Eww=$(cat ~/.config/eww/eww.scss | grep @import | cut -d "/" -f2 | 
 if [[ $Theme_Current = light.css ]]; then
 	sed -i "s/_light//g" ~/.themes/Midday/gtk-3.0/gtk.css
 	sed -i "s/_light//g" ~/.config/eww/eww.scss
+	sed -i 's/121212/F5F5F5/g' ~/.config/eww/Icons/Panel/*
 	
 else
 	sed -i "s/$Normal_Theme/${Normal_Theme}_light/g" ~/.themes/Midday/gtk-3.0/gtk.css
 	sed -i "s/$Normal_Theme_Eww/${Normal_Theme_Eww}_light/g"  ~/.config/eww/eww.scss
+	sed -i 's/F5F5F5/121212/g' ~/.config/eww/Icons/Panel/*
 
 fi

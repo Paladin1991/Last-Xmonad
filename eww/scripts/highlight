@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Get currente theme
 Eww_Currente_Theme=$(cat ~/.config/eww/eww.scss | grep @import | cut -d '"' -f2)
 Gtk_Currente_Theme=$(cat ~/.themes/Midday/gtk-3.0/gtk.css | grep @import | cut -d '"' -f2)

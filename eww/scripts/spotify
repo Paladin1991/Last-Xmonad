@@ -18,14 +18,16 @@ Spot(){
 				
             if [[ $STATUS = Playing ]]; then
                 STATUS="Icons/Candy/pause.svg"
+            elif [[ $STATUS = Paused ]]; then
+                STATUS="Icons/Candy/play.svg"
             else
-                STATUS="Icons/Candy/play.svg"                
+                STATUS="Icons/Candy/pause.svg"           
             fi
             
         if [[ "$PLAYER" = "spotify" ]]; then
           printf "$STATUS"
-        else
-          printf "$STATUS"
+        elif [[ "$PLAYER" != "spotify" ]]; then
+            printf "$STATUS"
         fi
     fi
 
@@ -75,6 +77,9 @@ if [[ $player = spotify ]]; then
     while :; do
         Get_Art; sleep 1
     done
+else
+    Get_Art
+    eww reload
 fi
 }
 
