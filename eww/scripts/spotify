@@ -2,7 +2,7 @@
 
 Spot(){
 
-    if ps -C spotify > /dev/null; then
+if ps -C spotify > /dev/null; then
         PLAYER="spotify"
     elif ps -C spotifyd > /dev/null; then
         PLAYER="spotifyd"
@@ -15,7 +15,7 @@ Spot(){
         TRACK=$(playerctl metadata title)
         STATUS=$(playerctl -p spotify status)
         SHUFFLE=$(playerctl shuffle)
-				
+                
             if [[ $STATUS = Playing ]]; then
                 STATUS="Icons/Candy/pause.svg"
             elif [[ $STATUS = Paused ]]; then
