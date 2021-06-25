@@ -1,6 +1,6 @@
 # Last-Xmonad
 
-# Bem vindo a minha customização do Xmonad
+### Bem vindo a minha customização do Xmonad
 
 ![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/last.png)
 
