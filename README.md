@@ -13,6 +13,13 @@ no painel de configuraçoes.
 
 Mude as cores de destaque em qualquer modo
 
+###Seram alterados  
+**O tema Gtk3**  
+**Gerenciadors de arquivos  
+Barras  
+Terminais que usam o tema Gtk3 desde que estajem configurados para isso  
+As barras usadas na customização e seus widgets**
+
 ![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/highlight.gif)
 
 
