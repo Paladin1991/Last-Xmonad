@@ -11,6 +11,11 @@ no painel de configuraçoes.
 
 ![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/mode.gif)
 
+Mude as cores de destaque em qualquer modo
+
+![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/highlight.gif)
+
+
 ![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/1.png)
 ![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/2.png)
 ![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/3.png)
