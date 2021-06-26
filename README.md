@@ -9,8 +9,7 @@
 Altere de maneira rapida e simples entre os temas claro e escuro  
 no painel de configuraçoes.
 
-![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/dark.png)
-![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/light.png)
+![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/mode.gif)
 
 ![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/1.png)
 ![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/2.png)
