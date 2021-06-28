@@ -6,6 +6,10 @@
 
 ### Caracteristicas
 
+|Applets|Menu|Android|
+|-|-|-|
+|![img](https://raw.githubusercontent.com/adi1090x/files/master/rofi/previews/applets/main.gif)|![img](https://raw.githubusercontent.com/adi1090x/files/master/rofi/previews/menu/main.gif)|![img](https://raw.githubusercontent.com/adi1090x/files/master/rofi/previews/android/main.gif)|
+
 Altere de maneira rapida e simples entre os temas claro e escuro  
 no painel de configuraçoes.
 
