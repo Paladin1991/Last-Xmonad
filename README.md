@@ -24,7 +24,8 @@ As barras usadas na customização e seus widgets**
 
 |Calendario|Controle de midia|
 |-|-|
-|![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/1.png)|![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/2.png)|
+|![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/1.png)|![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/2.png)|  
+
 |Painel de controle|Midias sociais|Menu|
 |-|-|-|
 |![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/3.png)|![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/4.png)|![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/5.png)|
