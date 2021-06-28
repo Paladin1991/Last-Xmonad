@@ -3,7 +3,7 @@
 mode=$(cat ~/.themes/Midday/gtk-3.0/gtk.css | grep @import | cut -d '"' -f2 | cut -d "/" -f2 | grep light | sed 's/.*_//g')
 
 if [[ $mode = light.css ]]; then
-	echo ""
+	echo ""
 else
 	echo ""
 fi

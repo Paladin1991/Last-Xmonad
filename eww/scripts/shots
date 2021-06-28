@@ -1,0 +1,27 @@
+#!/bin/bash
+
+Copy() {
+snap_shot=~/Desktop/snap_$(date +%y_%m_%d_%H_%M).png
+
+maim -s -m 10 "$snap_shot"
+
+notify-send Screenshot -i "$snap_shot" -u normal 'Snapshot Saved'
+}
+
+case $1 in
+    now)
+        scrot 'snap_%y_%m_%d_%H_%M.png' -q 100 -e 'mv $f ~/.Shots/ ; notify-send Screenshot -i ~/.Shots/$f -u normal "Snapshot Taken"'
+        ;;
+    copy)
+		Copy
+		;;
+	tree)
+		notify-send Screenshot -u low -t 1500 'Screenshot will be taken in 3 sec' &&
+		scrot 'snap_%y_%m_%d_%H_%M.png' -cd 2 -q 100 -e 'mv $f ~/.Shots/ ; notify-send Screenshot -i ~/.Shots/$f -u normal "Snapshot Taken"'
+		;;
+	teen)
+		notify-send Screenshot -u normal -t 4000 'Screenshot will be taken in 10 sec' &&
+		scrot 'snap_%y_%m_%d_%H_%M.png' -cd 5 -q 100 -e 'mv $f ~/.Shots/ ; notify-send Screenshot -i ~/.Shots/$f -u normal "Snapshot Taken"'
+		;;
+esac
+

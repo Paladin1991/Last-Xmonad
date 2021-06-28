@@ -3,25 +3,37 @@
 Spot(){
 
 if ps -C spotify > /dev/null; then
-        PLAYER="spotify"
-    elif ps -C spotifyd > /dev/null; then
-        PLAYER="spotifyd"
-    fi
+    PLAYER="spotify"
+elif ps -C spotifyd > /dev/null; then
+    PLAYER="spotifyd"
+elif pgrep firefox > /dev/null; then
+    PLAYER="firefox"
+elif pgrep telegram-deskto > /dev/null; then
+    PLAYER="telegram"
+fi
 
    
 
-    if [ "$PLAYER" = "spotify" ] || [ "$PLAYER" = "spotifyd" ]; then
+    if [ "$PLAYER" = "firefox" ] || [ "$PLAYER" = "telegram" ] || [ "$PLAYER" = "spotify" ] || [ "$PLAYER" = "spotifyd" ]; then
         ARTIST=$(playerctl metadata artist)
         TRACK=$(playerctl metadata title)
         STATUS=$(playerctl -p spotify status)
+        FIREFOX=$(playerctl -p firefox status)
+        TELE=$(playerctl -p tdesktop status)
         SHUFFLE=$(playerctl shuffle)
                 
             if [[ $STATUS = Playing ]]; then
                 STATUS="Icons/Candy/pause.svg"
             elif [[ $STATUS = Paused ]]; then
                 STATUS="Icons/Candy/play.svg"
-            else
-                STATUS="Icons/Candy/pause.svg"           
+            elif [[ $FIREFOX = Playing ]]; then
+                STATUS="Icons/Candy/pause.svg"
+            elif [[ $FIREFOX = Paused ]]; then
+                STATUS="Icons/Candy/play.svg"
+            elif [[ $TELE = Playing ]]; then
+                STATUS="Icons/Candy/pause.svg"
+            elif [[ $TELE = Paused ]]; then
+                STATUS="Icons/Candy/play.svg" 
             fi
             
         if [[ "$PLAYER" = "spotify" ]]; then
@@ -35,6 +47,7 @@ if ps -C spotify > /dev/null; then
 
 Get_Art()
 {
+
 tmp_dir="/tmp/spotify"
 tmp_cover_path=$tmp_dir/cover.png
 
@@ -46,46 +59,30 @@ artlink="$(playerctl metadata mpris:artUrl | sed -e 's/open.spotify.com/i.scdn.c
 
 if [ $(playerctl metadata mpris:artUrl) ]; then
 	curl -s "$artlink" --output $tmp_cover_path;
-else cp ~/.config/eww/Icons/Panel/music-hover.svg $tmp_cover_path;
+else 
+    cp ~/.config/eww/Icons/Panel/music-hover.svg $tmp_cover_path;
 fi
 
 }
 
-player=$(playerctl -l | grep spotify)
-
-artist()
+Status()
 {
- if [[ $player = spotify ]]; then
-    playerctl metadata artist
- else
-    echo "No playing"
- fi
+    if ps -C spotify > /dev/null; then
+        echo "Spotify  playing"
+    elif ps -C firefox > /dev/null; then
+        echo "Firefox  playing"
+    elif pgrep telegram-deskto > /dev/null; then
+        echo "Telegram Now"
+    else
+        echo "No       playing"
+    fi
+
 }
 
-title()
-{
- if [[ $player = spotify ]]; then
-    playerctl metadata title
- else
-    echo "No playing"
- fi
-}
-
-art()
-{
-if [[ $player = spotify ]]; then
-    while :; do
-        Get_Art; sleep 1
-    done
-else
-    Get_Art
-    eww reload
-fi
-}
 
 case $1 in 
 	SPOT) Spot 	;;
-	ART) art   ;;
-    ARTIST) artist  ;;
-    TITLE) title    ;;
+    PLAYING) Status     ;;
 esac
+
+Get_Art
