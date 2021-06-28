@@ -8,7 +8,7 @@
 
 |Dark & Light|Higlight|Tools|
 |-|-|-|
-|![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/mode.gif)|![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/highlight.gif)|![img](https://raw.githubusercontent.com/adi1090x/files/master/rofi/previews/android/main.gif)|
+|![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/mode.gif)|![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/highlight.gif)
 
 Altere de maneira rapida e simples entre os temas claro e escuro  
 no painel de configuraçoes.
