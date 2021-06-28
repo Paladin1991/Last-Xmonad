@@ -6,8 +6,8 @@
 
 ### Caracteristicas
 
-|Dark & Light|Higlight|Tools|
-|-|-|-|
+|Dark & Light|Higlight|
+|-|-|
 |![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/mode.gif)|![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/highlight.gif)
 
 Altere de maneira rapida e simples entre os temas claro e escuro  
