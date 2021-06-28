@@ -8,12 +8,12 @@
 
 |Dark & Light|Higlight|Tools|
 |-|-|-|
-|![img](https://raw.githubusercontent.com/adi1090x/files/master/rofi/previews/applets/main.gif)|![img](https://raw.githubusercontent.com/adi1090x/files/master/rofi/previews/menu/main.gif)|![img](https://raw.githubusercontent.com/adi1090x/files/master/rofi/previews/android/main.gif)|
+|![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/mode.gif)|![img](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/highlight.gif)|![img](https://raw.githubusercontent.com/adi1090x/files/master/rofi/previews/android/main.gif)|
 
 Altere de maneira rapida e simples entre os temas claro e escuro  
 no painel de configuraçoes.
 
-![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/mode.gif)
+![alt txt]()
 
 Mude as cores de destaque em qualquer modo
 
@@ -24,7 +24,7 @@ Barras
 Terminais que usam o tema Gtk3 desde que estajem configurados para isso  
 As barras usadas na customização e seus widgets**
 
-![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/highlight.gif)
+![alt txt]()
 
 
 ![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/1.png)
