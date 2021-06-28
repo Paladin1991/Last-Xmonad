@@ -3,6 +3,8 @@
 ### Bem vindo a minha customização do Xmonad
 
 ![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/last.png)
+![alt txt](https://github.com/Paladin1991/Last-Xmonad/blob/main/capturas/legend.png)
+
 
 ### Caracteristicas
 
