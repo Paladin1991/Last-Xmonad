@@ -50,7 +50,7 @@ myStartupHook = do
 
 -- Applications --
 myTerm = "xfce4-terminal"
-myBrowser = "google-chrome-stable"
+myBrowser = "firefox"
 myText_Editor = "subl"
 myFile_Manager = "nemo"
 myChat = "telegram-desktop"
@@ -205,7 +205,7 @@ main = do
             myBaseConfig
 
                 {startupHook = myStartupHook
-, layoutHook = gaps [(U,5), (D,5), (R,5), (L,5)] $ myLayout ||| layoutHook myBaseConfig
+, layoutHook = gaps [(U,4), (D,4), (R,4), (L,4)] $ myLayout ||| layoutHook myBaseConfig
 , manageHook = manageSpawn <+> myManageHook <+> manageHook myBaseConfig
 , modMask = myModMask
 , borderWidth = myBorderWidth
