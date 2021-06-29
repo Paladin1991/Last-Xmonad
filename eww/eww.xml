@@ -22,16 +22,15 @@
   <def name="Weather">
     <box orientation="v" class="weather-panel" space-evenly="false" halign="center">
       <label class="city" text="{{city}}" halign="center" valign="center"></label>
+       <label class="weatherstatus" text="{{weather-status}}" halign="center" valign="start"/>
+      <label class="weather-icon" text="{{weathericons}}" halign="center" valign="center"></label>
       <label class="weathertemp" text="{{weather-temp}}" halign="center" valign="start"/>
-        <revealer transition="slideright" reveal="true" duration="10s" vexpand="true">
           <box orientation="v">
-            <label class="weatherstatus" text="{{weather-status}}" halign="center" valign="start"/>
               <box orientation="h">
                 <label class="weatherspeed" text="{{weather-speed}}" halign="center" valign="start"/>
                 <label class="moon" text="{{moon}}" halign="center" valign="start"/>
               </box>
           </box>
-        </revealer>
     </box>
     
     </def>
@@ -59,7 +58,7 @@
 
   <!--Settings Volume-->
   <def name="Settings-Volume">
-    <box orientation="v"  halign="start" class="settings-volume" space-evenly="false">
+    <box orientation="v"  halign="start" class="settings-volume" space-evenly="true">
       <scale orientation="h" 
              flipped="false" 
              min="0" 
@@ -122,6 +121,7 @@
 	<def name="Disp">
     <box orientation="v" class="disp" space-evenly="false">
 			<button onclick="eww open calendar" class="disp-time" tooltip="Calendar">{{Time-Settings}}</button>
+      <label class="disp-separator"/>
 			<button onclick="spotify &" class="disp-app" tooltip="Spotify music" style="background-image: url('Icons/Panel/spotify.svg')"></button>
 			<button onclick="xfce4-terminal &" class="disp-app" tooltip="Terminal" style="background-image: url('Icons/Panel/terminal.svg')"></button>
 			<button onclick="subl &" class="disp-app" tooltip="Editor" style="background-image: url('Icons/Panel/sublime.svg')"></button>
@@ -238,7 +238,7 @@
     <script-var name="Status" interval="1ms">sh ~/.config/eww/scripts/volume VOLUME_ICON</script-var>
 
     <!--Mode-->
-    <script-var name="mode" interval="1ms">sh ~/.config/eww/scripts/current-mode</script-var>
+    <script-var name="mode" interval="1h">sh ~/.config/eww/scripts/current-mode</script-var>
 
     <script-var name="User" interval="72h">echo "$USER@`uname -n`"</script-var>
     <script-var name="Time" interval="1s">date '+%H:%M:%S'</script-var>

@@ -1,4 +1,4 @@
-@import "themes/normal.scss";
+@import "themes/normal_light.scss";
 
 window {
   background-color: transparent;
@@ -115,6 +115,7 @@ expander arrow:hover, expander arrow:active {
   padding-right: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin: 3px;
   
 }
 
@@ -130,8 +131,7 @@ expander arrow:hover, expander arrow:active {
   padding-right: 34px;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin-left: 10px;
-  
+  margin: 3px; 
 }
 
 .share-button:hover {
@@ -146,7 +146,7 @@ expander arrow:hover, expander arrow:active {
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-left: 10px;
+  margin: 3px;
   border-radius: 5px;
   
 }
@@ -215,8 +215,11 @@ expander arrow:hover, expander arrow:active {
   padding-bottom: 20px;
   padding-left: 2px;
   padding-right: 2px;
-  margin-bottom: 60px;
+  margin: 3px;
+}
 
+.disp-separator {
+  margin-top: 35px;
 }
 
 .disp-time:hover {
@@ -785,6 +788,7 @@ expander arrow:hover, expander arrow:active {
   padding-bottom: 20px;
   padding-top: 20px;
   margin-top: 1px;
+  margin-left: 1px;
   font-size: 15px;
   border-radius: 0px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -897,8 +901,8 @@ calendar {
   color: $font;
   background-color: transparent;
   font-size: 12px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
   padding-top: 17px;
   padding-bottom: 16px;
 
@@ -952,36 +956,39 @@ calendar:indeterminate {
 
 .weather-panel {
   background-color: rgba($base, 0.5);
-  padding: 0px 80px 0px 80px;
+  padding: 0px 91px 0px 91px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .city {
+  background-color: rgba($base, 0.5);
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-bottom: 20px;
+  margin-top: 10px;
   font-family: Ubuntu;
-  font-size: 40px;
-  background-color: $highlight;
+  font-size: 30px;
   color: $font;
-  padding: 10px 10px 10px 10px;
-  margin: 10px 20px 20px 20px;
 
+}
+.weather-icon {
+  margin-top: -50px;
+  font-size: 200px;
 }
 
 .weatherstatus {
   font-family: Ubuntu;
-  font-size: 40px;
+  font-size: 20px;
   color: $font;
-  margin-top: 40px;
-  margin-bottom: 20px;
-
 }
 
 .weathertemp {
   font-family: Ubuntu;
   font-size: 60px;
+  margin-top: -50px;
+  padding-right: 20px;
+  padding-left: 20px;
   color: $highlight;
-  padding: 20px;
-  margin-top: 30px;
-  margin-right: 10px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
 }
@@ -989,15 +996,15 @@ calendar:indeterminate {
 .weatherspeed {
   font-family: Ubuntu;
   font-size: 30px;
-  color: #FF00FF;
-  margin-top: 30px;
+  color: $font;
+  margin-top: 20px;
 }
 
 .moon {
   font-family: Ubuntu;
   font-size: 30px;
+  margin-top: 20px;
   color: $font;
-  margin-top: 25px;
 
 }
 
