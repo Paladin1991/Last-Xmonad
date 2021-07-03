@@ -3,8 +3,8 @@
 
  <!--Close button-->
   <def name="Close">
-    <box orientation="h" space-evenly="false" class="close" halign="center">
-      <button onclick="eww close hobby & eww close settings" class="close-app" tooltip="Close">  </button>
+    <box orientation="h" space-evenly="true" halign="start" valign="center">
+      <button class="close-app" onclick="eww close hobby & eww close weather" tooltip="Close"> Close</button>
     </box>
   </def>
 
@@ -20,15 +20,15 @@
 
   <!--Weather-->
   <def name="Weather">
-    <box orientation="v" class="weather-panel" space-evenly="false" halign="center">
-      <label class="city" text="{{city}}" halign="center" valign="center"></label>
-       <label class="weatherstatus" text="{{weather-status}}" halign="center" valign="start"/>
-      <label class="weather-icon" text="{{weathericons}}" halign="center" valign="center"></label>
-      <label class="weathertemp" text="{{weather-temp}}" halign="center" valign="start"/>
-          <box orientation="v">
-              <box orientation="h">
-                <label class="weatherspeed" text="{{weather-speed}}" halign="center" valign="start"/>
-                <label class="moon" text="{{moon}}" halign="center" valign="start"/>
+    <box orientation="v" class="weather-panel" space-evenly="false">
+      <label class="city" text="{{city}}" halign="center"/>
+       <label class="weatherstatus" text="{{weather-status}}"/>
+      <label class="weather-icon" text="{{weathericons}}"/>
+      <label class="weathertemp" text="{{weather-temp}}"/>
+          <box orientation="v">              
+            <box orientation="h">
+                <label class="weatherspeed" text="{{weather-speed}}"/>
+                <label class="moon" text="{{moon}}"/>
               </box>
           </box>
     </box>
@@ -39,6 +39,7 @@
   <def name="Settings">
     <box orientation="h" class="user-info" space-evenly="false">
       <label class="actual-user" text="{{User}}"></label>
+      <button onclick="eww open power & eww close settings" class="power-button"></button>
     </box>
   </def>
 
@@ -52,7 +53,10 @@
       <label text="Wallpapers" class="disp-description"/>
       <button onclick="eww open calendar & eww close settings" class="calendar-button"></button>
       <label text="Calendar" class="disp-description"/>
-      <button onclick="eww open power & eww close settings" class="power-button"></button>
+      <button onclick="eww open weather & eww close settings" class="weather-button"></button>
+      <label text="Weather" class="disp-description"/>
+      <button onclick="eww open weather & eww close settings" class="weather-button"></button>
+      <label text="Monitor" class="disp-description"/>
     </box>
   </def>
 
@@ -66,7 +70,7 @@
              value="{{volume}}" 
              onchange="amixer -D pulse sset Master {}%"/>
         <box orientation="h" space-evenly="false">
-          <label text="{{volume}}%" class="settings-label-perc"></label>
+          <label text="{{volume}}%" class="settings-label-perc" space-evenly="false"></label>
           <label class="separator-volume-settings"/>
           <button class="settings-label-vol" onclick="amixer -q set Master toggle">{{Status}}</button>
           <button onclick="pavucontrol &" class="settings-label-vol" tooltip="Settings"></button>
@@ -249,7 +253,7 @@
     <script-var name="date" interval="72h">date '+%Y'</script-var>
 
     <!--Icone que representa o status do clima-->
-    <script-var name="weathericons" interval="1s">curl wttr.in/?format=%c</script-var>
+    <script-var name="weathericons" interval="1s">echo -e "`curl wttr.in/?format=%c`"</script-var>
     <!--Nome da cidade de onde a previsao do clima esta sendo feita-->
     <script-var name="city" interval="24h">curl wttr.in/?format=%l</script-var>
     <!--Status do clima-->
@@ -272,6 +276,7 @@
       </widget>
   </window>
 
+<!--Left bar-->
   <window name="disp" stacking="bg" focusable="false" >
     <geometry x="230" y="160" width="0" height="0"/>
     	<widget>
@@ -279,6 +284,7 @@
     	</widget>
   </window>
 
+<!--Power menu-->
   <window name="power" stacking="bg">
     <geometry x="300" y="160" width="0" height="0"/>
     	<widget>
@@ -288,7 +294,7 @@
   
   <!--Hobby-->
   <window name="hobby" stacking="bg">
-    <geometry x="295" y="155" widget="0" height="0"/>
+    <geometry x="300" y="160" widget="0" height="0"/>
       <widget>
         <box orientation="v" space-evenly="false">
           <Hobby/>
@@ -301,7 +307,7 @@
 
   <!--Music--><!--Spotify-->
   <window name="spotify" stacking="bg">
-    <geometry x="1077" y="310" width="0" height="0"/>
+    <geometry x="1073" y="310" width="0" height="0"/>
       <widget>
         <box orientation="v" space-evenly="false">
           <Spotify/>
@@ -332,7 +338,17 @@
       <widget>
         <box orientation="h" space-evenly="false" class="box-calendar">
           <Calendar/>
+        </box>
+      </widget>
+  </window>
+
+  <!--Weather-->
+  <window name="weather" stacking="bg">
+    <geometry x="300" y="160" width="0" height="0"/>
+      <widget>
+        <box orientation="v" space-evenly="false" class="box-weather">
           <Weather/>
+          <Close/>
         </box>
       </widget>
   </window>

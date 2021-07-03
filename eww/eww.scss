@@ -1,5 +1,12 @@
+/*Imports the colors used throughout the code. 
+If you want to change the colors, change it within this file. 
+The colors of "base", "highlight" and "font" can be changed. 
+But if these colors are modified, when using the settings panel, 
+when selecting a highlight color or in mode, 
+these colors will change to the original colors.*/
 @import "themes/normal_light.scss";
 
+/*Default settings for all windows will be used if no settings are specified in other windows*/
 window {
   background-color: transparent;
   color: $font;
@@ -7,6 +14,7 @@ window {
   border-radius: 0px;
 }
 
+/*Default settings for all buttons will be used if no settings are specified for other buttons.*/
 button { 
   all: unset;
   background-image: radial-gradient(circle farthest-side at center, transparent 100%, transparent 100%);
@@ -15,7 +23,7 @@ button {
   
 }
 
-
+/*Tooltip configuration defaults.*/
 tooltip {
   background-color: $base;
   font-family: monospace;
@@ -23,18 +31,7 @@ tooltip {
   color: $font;
 }
 
-@mixin inline-animation($duration) {
-  $name: inline-#{unique-id()};
-  @keyframes #{$name} {
-    @content;
-  }
-
-  animation-name: $name;
-  animation-duration: $duration;
-  animation-iteration-count: infinite;
-}
-
-
+/*Expander Settings*/
 expander {
   all: unset;
   // Make up for the translation
@@ -81,33 +78,33 @@ expander arrow:hover, expander arrow:active {
   color: $highlight;
 }
 
-/* Widgets */
+/*In the sequence, all the style blocks of the widgets are started.*/
 
+/*Close button*/
 .close-app {
   color: $font;
   font-size: 14px;
   padding-left: 10px;
   padding-right: 10px;
+  margin-top: 1px;
 }
 
+.close-app:hover {
+  background-color: $base;
+  color: #F23567;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 1px;
+}
 
+/*Bottom bar*/
 .bottom-bar {
   background-color: rgba($base, 0.5);
   font-size: 20px;
 }
 
-.power {
-  background-color: rgba($base, 0.7);
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-right: 10px;
-}
-
-.power:hover {
-  background-color: rgba($base, 0.9);
-  color: $highlight;
-}
-
+/*Menu button*/
 .menu {
   background-color: rgba($base, 0.7);
   color: $font;
@@ -124,6 +121,7 @@ expander arrow:hover, expander arrow:active {
   color: $highlight;
 }
 
+/*Social media button*/
 .share-button {
   background-color: rgba($base, 0.7);
   color: $font;
@@ -139,6 +137,7 @@ expander arrow:hover, expander arrow:active {
   color: $highlight;
 }
 
+/*Settings button*/
 .settings-button {
   background-color: rgba($highlight, 0.7);
   color: $font;
@@ -156,10 +155,13 @@ expander arrow:hover, expander arrow:active {
   color: #121212;
 }
 
+/*Separator*/
 .separator {
   margin-left: 365px
 }
 
+/*Bottom bar image showing the album cover of the song played via spotify, 
+or youtube running on firefox*/
 .icon-spotify {
   background-size: 60px;
   background-repeat: no-repeat;
@@ -174,6 +176,7 @@ expander arrow:hover, expander arrow:active {
   background-size: 65px;
 }
 
+/*Current player information.*/
 .metadata {
   margin-left: 20px;
   margin-right: 16px;
@@ -196,8 +199,7 @@ expander arrow:hover, expander arrow:active {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 1), 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Dock */
-
+/*Bar located on the left*/
 .disp {
   background-size: 35px;
   background-repeat: no-repeat;
@@ -207,10 +209,12 @@ expander arrow:hover, expander arrow:active {
   min-width: 55px;
 }
 
+/*Left bar clock*/
 .disp-time {
-  background-color: rgba($highlight, 0.7);
+  background-color: rgba($highlight, 0.9);
   color: $font;
-  font-size: 19px;
+  font-family: Ubuntu;  
+  font-size: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 2px;
@@ -218,15 +222,17 @@ expander arrow:hover, expander arrow:active {
   margin: 3px;
 }
 
+.disp-time:hover {
+  background-color: rgba($highlight, 1);
+  color: #121212;
+}
+
+/*Left bar tab*/
 .disp-separator {
   margin-top: 35px;
 }
 
-.disp-time:hover {
-  background-color: rgba($highlight, 0.9);
-  color: #121212;
-}
-
+/*Left bar programs*/
 .disp-app {
   background-size: 35px;
   background-repeat: no-repeat;
@@ -244,17 +250,14 @@ expander arrow:hover, expander arrow:active {
   transition: 1000ms, background-size 1000ms cubic-bezier(0, 0, 0.20, 2), background-image 10000ms cubic-bezier(0, 0, 0.2, 3);   
 }
 
-/********************/
-/* Power menu */
-/********************/
-
-
+/*Menu for selection of session actions*/
 .power-menu {
   background-color: rgba($base, 0.5);
   padding-left: 35px;
   padding-right: 35px;
 }
 
+/*Session Actions Menu User Icon*/
 .icon_user {
   background-size: 400px;
   background-repeat: no-repeat;
@@ -275,13 +278,14 @@ expander arrow:hover, expander arrow:active {
 
 }
 
-
+/*Session Actions Menu Username*/
 .power-user {
   font-size: 30px;
   background-color: $highlight;
   border-radius: 10px
 }
 
+/*Session Actions Menu Time*/
 .power-time {
   font-size: 30px;
   color: $highlight;
@@ -289,13 +293,14 @@ expander arrow:hover, expander arrow:active {
   margin-bottom: 50px;
 }
 
+/*Session Actions Menu Buttons*/
 .power-control {
   margin-bottom: 28px;
-
 }
 
+/*Session actions menu off button*/
 .button_power {
-  background-image: url('Icons/Candy/power.svg');
+  background-image: url('Icons/Panel/power.svg');
   background-size: 50px;
   background-repeat: no-repeat;
   background-position: center;
@@ -306,19 +311,19 @@ expander arrow:hover, expander arrow:active {
   margin-bottom: 20px;
   margin-right: 80px;
   border-radius: 100%;
-
 }
 
 .button_power:hover {
-  background-image: url('Icons/Candy/power-hover.svg');
+  background-image: url('Icons/Panel/power-hover.svg');
   background-size: 40px;
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.99)
 }
 
+/*Session Actions Menu Reset Button*/
 .button_reboot {
-  background-image: url('Icons/Candy/reboot.svg');
+  background-image: url('Icons/Panel/reboot.svg');
   background-size: 50px;
   background-repeat: no-repeat;
   background-position: center;
@@ -333,7 +338,7 @@ expander arrow:hover, expander arrow:active {
 }
 
 .button_reboot:hover {
-  background-image: url('Icons/Candy/reboot-hover.svg');
+  background-image: url('Icons/Panel/reboot-hover.svg');
   background-size: 40px;
   background-repeat: no-repeat;
   background-position: center;
@@ -341,8 +346,9 @@ expander arrow:hover, expander arrow:active {
 
 }
 
+/*Session actions menu exit button*/
 .button_exit {
-  background-image: url('Icons/Candy/exit.svg');
+  background-image: url('Icons/Panel/exit.svg');
   background-size: 60px;
   background-repeat: no-repeat;
   background-position: center;
@@ -356,7 +362,7 @@ expander arrow:hover, expander arrow:active {
 }
 
 .button_exit:hover {
-  background-image: url('Icons/Candy/exit-hover.svg');
+  background-image: url('Icons/Panel/exit-hover.svg');
   background-size: 50px;
   background-repeat: no-repeat;
   background-position: center;
@@ -364,21 +370,20 @@ expander arrow:hover, expander arrow:active {
 
 }
 
-
-/// Hobby
-
+/*Quick help panel to social media*/
 .hobby { 
-  background-color: rgba($base, 0.0);
+  background-color: rgba($base, 0);
 
 }
 
+/*Facebook*/
 .face {
   background-image: url('Icons/Candy/face.svg');
   background-size: 100px;
   background-repeat: no-repeat;
   background-position: center;
   background-color: rgba(#6399ff, 0.5);
-  min-height: 165px;
+  min-height: 160px;
   min-width: 290px;
   color: transparent;
   margin-left: 5px;
@@ -398,6 +403,7 @@ expander arrow:hover, expander arrow:active {
   background-color: rgba(#6399ff, 0.3);
 }
 
+/*Instagram*/
 .insta {
   background-image: url('Icons/Candy/insta.svg');
   background-size: 100px;
@@ -406,7 +412,7 @@ expander arrow:hover, expander arrow:active {
   background-color: rgba(#ff6060, 0.5);
   color: transparent;
   min-height: 130px;
-  min-width: 250px;
+  min-width: 355px;
   margin-left: 2.5px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -424,6 +430,7 @@ expander arrow:hover, expander arrow:active {
   
 }
 
+/*Youtube*/
 .tube {
   background-image: url('Icons/Candy/tube.svg');
   background-size: 100px;
@@ -435,7 +442,7 @@ expander arrow:hover, expander arrow:active {
   min-width: 400px;
   margin-bottom: 5px;
   margin-top: 5px;
-  margin-right: 2.5px;
+  margin-right: 5px;
   border-radius: 0px;
 }
 
@@ -449,6 +456,7 @@ expander arrow:hover, expander arrow:active {
   
 }
 
+/*Twitter*/
 .twitter {
   background-image: url('Icons/Candy/twitter.svg');
   background-size: 100px;
@@ -456,8 +464,8 @@ expander arrow:hover, expander arrow:active {
   background-position: center;
   background-color: rgba(#00fff3, 0.5);
   color: transparent;
-  min-height: 165px;
-  min-width: 238px;
+  min-height: 160px;
+  min-width: 250px;
   margin-left: 5px;
   margin-top: 0px;
   margin-bottom: 5px;
@@ -475,6 +483,7 @@ expander arrow:hover, expander arrow:active {
   
 }
 
+/*Telegram*/
 .tele {
   background-image: url('Icons/Candy/tele.svg');
   background-size: 100px;
@@ -500,6 +509,7 @@ expander arrow:hover, expander arrow:active {
   
 }
 
+/*Discord*/
 .discord {
   background-image: url('Icons/Candy/discord.svg');
   background-size: 100px;
@@ -512,7 +522,7 @@ expander arrow:hover, expander arrow:active {
   margin-bottom: 5px;
   margin-left: 5px;
   min-height: 130px;
-  min-width: 242px;
+  min-width: 335px;
   border-radius: 0px;
 }
 
@@ -525,6 +535,7 @@ expander arrow:hover, expander arrow:active {
   background-color: rgba(#bb69ff, 0.3);
 }
 
+/*Reddit*/
 .red {
   background-image: url('Icons/Candy/red.svg');
   background-size: 100px;
@@ -532,7 +543,7 @@ expander arrow:hover, expander arrow:active {
   background-position: center;
   background-color: rgba(#ff450c, 0.5);
   color: transparent;
-  min-height: 165px;
+  min-height: 164px;
   min-width: 340px;
   margin-left: 5px;
   margin-top: 0px;
@@ -551,7 +562,7 @@ expander arrow:hover, expander arrow:active {
  
 }
 
-
+/*Netflix*/
 .net {
   background-image: url('Icons/Candy/net.svg');
   background-size: 100px;
@@ -560,7 +571,7 @@ expander arrow:hover, expander arrow:active {
   background-color: rgba(#ff0000, 0.5);
   color: transparent;
   min-height: 130px;
-  min-width: 300px;
+  min-width: 350px;
   margin-left: 2.5px;
   margin-top: 0px;
   margin-bottom: 5px;
@@ -577,7 +588,7 @@ expander arrow:hover, expander arrow:active {
   
 }
 
-
+/*Github*/
 .git {
   background-image: url('Icons/Candy/git.svg');
   background-size: 100px;
@@ -586,7 +597,7 @@ expander arrow:hover, expander arrow:active {
   background-color: rgba(#FF6642, 0.5);
   color: transparent;
   min-height: 130px;
-  min-width: 300px;
+  min-width: 355px;
   margin-left: 5px;
   margin-top: 0px;
   margin-bottom: 5px;
@@ -604,34 +615,30 @@ expander arrow:hover, expander arrow:active {
    
 }
 
-/// Spotify & Volume
+/*Music player and volume control panel*/
 
+/*Volume*/
 .volume {
   background-color: rgba($base, 0.5);
   padding: 7px;
 }
 
-.settings-label-perc {
-  font-size: 18px;
-  margin-left: 10px;
-}
-
+/*Music player widget volume button*/
 .label-vol {
   font-size: 25px;
   margin-right: 10px;
   padding-right: 10px;
   padding-left: 10px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-
 }
 
 .label-vol:hover {
   background-color: rgba($highlight, 1);
   color: $font;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.99);
-  
 }
 
+/*Music player volume scale*/
 .volume scale trough highlight {
   all: unset;
   background: $highlight;
@@ -649,10 +656,12 @@ expander arrow:hover, expander arrow:active {
   margin-right: 30px;
 }
 
+/*Music player window*/
 .spot-widget {
   background: rgba($base, 1)
 }
 
+/*Music player album art*/
 .art-album {
   background-size: 290px;
   background-repeat: no-repeat;
@@ -671,12 +680,12 @@ expander arrow:hover, expander arrow:active {
   min-width: 290px;
 }
 
+/*Music player control buttons*/
 .spoti-control {
   background-color: $base;
   padding-top: 10px;
   padding-bottom: 10px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-
 }
 
 .spoti-control-music {
@@ -701,7 +710,8 @@ expander arrow:hover, expander arrow:active {
 // Settings
 
 .box-settings {
-  background-color: rgba($base, 0.5)
+  background-color: rgba($base, 0.5);
+  padding: 10px 10px 10px 0px;
 }
 
 .user-info {
@@ -709,7 +719,7 @@ expander arrow:hover, expander arrow:active {
   padding-top: 20px;
   padding-bottom: 20px;
   margin-left: 1px;
-  border-radius: 0px;
+  border-radius: 10px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
@@ -735,49 +745,47 @@ expander arrow:hover, expander arrow:active {
   background-color: rgba($base, 0.9);
   border-radius: 100%;
   background-image: url('Icons/user.png');
-  background-size: 120px;
+  background-size: 150px;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 60px;
-  min-width: 60px;
-  margin: 5px 5px 0px 5px;
+  min-height: 70px;
+  min-width: 70px;
+  margin: 10px 5px 30px 5px;
 }
 
 .user-image:hover {
   background-size: 130px;  
 }
 
-.mode-settings, .wall-button, .calendar-button {
-  font-size: 30px;
-  background: linear-gradient(0deg, $highlight 0%, transparent 0%);
+.mode-settings, .wall-button, .calendar-button, .weather-button {
+  font-size: 25px;
+  background-color: transparent;
   color: $font;
-  margin-top: 30px;
-  margin-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
   margin-left: 10px;
-  border-radius: 0px;
+  margin-right: 10px;
+  border-radius: 10px;
 }
 
-.mode-settings:hover, .wall-button:hover, .calendar-button:hover {
-  background-image: radial-gradient(circle farthest-side at left, transparent 100%, transparent 100%);
-  transition: 5ms, background-size 5ms cubic-bezier(0, 0, 0.2, 3), background-image 500ms cubic-bezier(0, 0, 0.1, 3);
-  background: linear-gradient(0deg, rgba($highlight, 0.1) 100%, transparent 100%);
+.mode-settings:hover, .wall-button:hover, .calendar-button:hover, .weather-button:hover {
+  background-color: rgba($base, 0.5);
   color:$highlight;
 }
 
 .power-button {
   font-size: 30px;
-  background: linear-gradient(0deg, $highlight 0%, transparent 0%);
+  background-color: rgba($base, 0.7);
   color: $font;
-  margin-top: 130px;
+  margin-top: 0px;
   margin-right: 10px;
-  margin-left: 10px;
-  border-radius: 0px;
+  margin-left: 160px;
+  border-radius: 10px;
 }
 
 .power-button:hover {
-  background-image: radial-gradient(circle farthest-side at left, transparent 100%, transparent 100%);
-  transition: 5ms, background-size 5ms cubic-bezier(0, 0, 0.2, 3), background-image 500ms cubic-bezier(0, 0, 0.1, 3);
-  background: linear-gradient(0deg, rgba($highlight, 0.1) 100%, transparent 100%);
+  background-color: rgba($base, 0.5);
   color:#F12345;
 }
 
@@ -787,10 +795,10 @@ expander arrow:hover, expander arrow:active {
   background: linear-gradient(90deg, rgba($base, 0.9) 20%, rgba($base, 0.4) 100%);
   padding-bottom: 20px;
   padding-top: 20px;
-  margin-top: 1px;
+  margin-top: 10px;
   margin-left: 1px;
   font-size: 15px;
-  border-radius: 0px;
+  border-radius: 10px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
@@ -823,14 +831,19 @@ expander arrow:hover, expander arrow:active {
   background: linear-gradient(90deg, rgba($base, 0.9) 20%, rgba($base, 0.4) 100%);
   padding-top: 25px;
   padding-bottom: 25px;
-  margin-top: 1px;
+  margin-top: 10px;
   margin-left: 1px;
-  border-radius: 0px;
+  border-radius: 10px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .separator-volume-settings {
   margin-left: 293px;
+}
+
+.settings-label-perc {
+  font-size: 18px;
+  margin-left: 10px;
 }
 
 
@@ -852,9 +865,9 @@ expander arrow:hover, expander arrow:active {
 
 .settings-volume scale trough highlight {
   all: unset;
-  background: rgba($highlight, 0.5);
+  background: rgba($highlight, 0.3);
   color: transparent;
-  border-radius: 0px;
+  border-radius: 10px;
 
 }
 
@@ -890,8 +903,8 @@ expander arrow:hover, expander arrow:active {
   background-color: transparent;
   min-height: 50px;
   min-width: 50px;
-  font-family: Ubuntu Bold;
-  font-size: 40px;
+  font-family: JetBrains Pro,;  
+  font-size: 30px;
   margin-bottom: 4px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
@@ -954,41 +967,49 @@ calendar:indeterminate {
 
 /// Weather
 
+.box-weather {
+  background-color: rgba($base, 0.5);
+  padding: 5px;
+}
+
 .weather-panel {
   background-color: rgba($base, 0.5);
-  padding: 0px 91px 0px 91px;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .city {
   background-color: rgba($base, 0.5);
+  font-family: Ubuntu;
+  font-size: 50px;
+  margin-top: 5px;
+  margin-bottom: 10px;
   padding-left: 50px;
   padding-right: 50px;
-  margin-bottom: 20px;
-  margin-top: 10px;
-  font-family: Ubuntu;
-  font-size: 30px;
   color: $font;
 
-}
-.weather-icon {
-  margin-top: -50px;
-  font-size: 200px;
 }
 
 .weatherstatus {
   font-family: Ubuntu;
   font-size: 20px;
   color: $font;
+  padding: 10px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-color: $highlight
+}
+
+.weather-icon {
+  font-size: 190px;
+  margin-left: 100px;
 }
 
 .weathertemp {
   font-family: Ubuntu;
   font-size: 60px;
-  margin-top: -50px;
-  padding-right: 20px;
-  padding-left: 20px;
   color: $highlight;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-bottom: 10px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
 }
@@ -997,13 +1018,11 @@ calendar:indeterminate {
   font-family: Ubuntu;
   font-size: 30px;
   color: $font;
-  margin-top: 20px;
 }
 
 .moon {
   font-family: Ubuntu;
   font-size: 30px;
-  margin-top: 20px;
   color: $font;
 
 }
@@ -1014,10 +1033,10 @@ calendar:indeterminate {
   background: linear-gradient(90deg, rgba($base, 0.9) 20%, rgba($base, 0.4) 100%);
   padding-bottom: 20px;
   padding-top: 20px;
-  margin-top: 1px;
+  margin-top: 10px;
   margin-left: 1px;
   font-size: 15px;
-  border-radius: 0px;
+  border-radius: 10px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
 }
@@ -1036,7 +1055,7 @@ calendar:indeterminate {
 }
 
 .highlight-use1 {
-  background-color: #DC143C;
+  background-color: #ff5471;
   padding: 12px;
   margin-left: 40px;
   border-radius: 100%;
@@ -1050,14 +1069,14 @@ calendar:indeterminate {
 }
 
 .highlight-use3 {
-  background-color: #A020F0;
+  background-color: #cb94ff;
   padding: 12px;
   margin-left: 35px;
   border-radius: 100%;
 }
 
 .highlight-use4 {
-  background-color: #FF8C00;
+  background-color: #f6ff78;
   padding: 12px;
   margin-left: 35px;
   border-radius: 100%;

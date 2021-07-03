@@ -10,14 +10,14 @@ Gtk_Currente_Color=$(cat ~/.themes/Midday/gtk-3.0/$Gtk_Currente_Theme | grep hig
 
 # Colors
 
-# Red #DC143C
-red="DC143C"
+# Red #ff5471
+red="ff5471"
 # Green #00FA9A
 green="00FA9A"
-# Purple #A020F0
-purple="A020F0"
-# Orange #FF8C00
-orange="FF8C00"
+# Purple #cb94ff
+purple="cb94ff"
+# Orange ##f6ff78
+orange="f6ff78"
 # Blue #00d2ff
 blue="00d2ff"
 # Cyan #00FFFF
