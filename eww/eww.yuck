@@ -1,0 +1,280 @@
+;; --*- Mode: Lisp -*--
+
+;; Translated by https://github.com/tripleo1
+
+;; Close button
+(defwidget Close [] 
+  (box :orientation "h" :space-evenly "true" :halign "start" :valign "center" 
+	   (button :class "close-app" :onclick "eww close hobby & eww close weather" :tooltip "Close" " Close")))
+
+;;  Calendar 
+(defwidget Calendar [] 
+  (box :class "calendar" :orientation "h" :space-evenly "true" 
+	   (box :class "calendarwin" :orientation "v" :space-evenly "false" 
+			(button :onclick "eww close calendar" :tooltip "Closer" :class "icon-calendar" date)
+			(calendar :show-day-names "true" :show-heading "true"))))
+
+;; Weather
+(defwidget Weather [] 
+  (box :orientation "v" :class "weather-panel" :space-evenly "false" 
+	   (label :class "city" :text city :halign "center")
+       (label :class "weatherstatus" :text weather-status)
+	   (label :class "weather-icon" :text weathericons)
+	   (label :class "weathertemp" :text weather-temp)
+	   (box :orientation "v"               
+            (box :orientation "h" 
+				 (label :class "weatherspeed" :text weather-speed)
+				 (label :class "moon" :text moon)))))
+
+;; Settings
+(defwidget Settings [] 
+  (box :orientation "h" :class "user-info" :space-evenly "false" 
+	   (label :class "actual-user" :text User)
+	   (button :onclick "eww open power & eww close settings" :class "power-button" "")))
+
+;; Side bar settings
+(defwidget Disp2 [] 
+  (box :orientation "v" :class "disp2" :space-evenly "false" 
+	   (button :onclick "eww close settings" :class "user-image")
+	   (button :onclick "sh ~/.config/eww/scripts/mode" :class "mode-settings" :tooltip "Mode" mode)
+	   (label :text "Mode" :class "disp-description")
+	   (button :onclick "feh -g 995x510+300+160 --zoom 30 ~/Imagens/* & eww close settings" :class "wall-button" "")
+	   (label :text "Wallpapers" :class "disp-description")
+	   (button :onclick "eww open calendar & eww close settings" :class "calendar-button" "")
+	   (label :text "Calendar" :class "disp-description")
+	   (button :onclick "eww open weather & eww close settings" :class "weather-button" "")
+	   (label :text "Weather" :class "disp-description")
+	   (button :onclick "eww open weather & eww close settings" :class "weather-button" "")
+	   (label :text "Monitor" :class "disp-description")))
+
+;; Settings Volume
+(defwidget Settings-Volume [] 
+  (box :orientation "v"  :halign "start" :class "settings-volume" :space-evenly "true"
+	   (scale :orientation "h" 
+			  :flipped     "false" 
+			  :min         "0" 
+			  :max         "100" 
+			  :value       "{{volume}}" 
+			  :onchange    "amixer -D pulse sset Master {}%")
+	   (box :orientation "h" :space-evenly "false" 
+			(label :text "${volume}%" :class "settings-label-perc" :space-evenly "false")
+			(label :class "separator-volume-settings")
+			(button :class "settings-label-vol" :onclick "amixer -q set Master toggle" Status)
+			(button :onclick "pavucontrol &" :class "settings-label-vol" :tooltip "Settings" ""))
+	   ))
+
+;; Screenshots
+(defwidget Screenshot [] 
+  (box :orientation "v" :space-evenly "false" :class "label-screenshot" 
+	   (label :text "Take a Screenshot")
+	   (box :orientation "h" :space-evenly "false" :class "screenshot" 
+			(button :onclick "sh ~/.config/eww/scripts/shots now" :class "settings-shot" :tooltip "Instant" "")
+			(button :onclick "sh ~/.config/eww/scripts/shots teen" :class "settings-shot" :tooltip "10 seconds" "")
+			(button :onclick "sh ~/.config/eww/scripts/shots tree" :class "settings-shot" :tooltip "3 seconds" "")
+			(button :onclick "sh ~/.config/eww/scripts/shots copy" :class "settings-shot" :tooltip "Select a window" ""))))
+
+;; Power Manager
+(defwidget Power [] 
+  (box :orientation "v" :halign "start" :valign "start" :space-evenly "false" :class "power-menu" 
+	   (button :onclick "eww close power" :class "icon_user" :halign "center" :valign "start" :style "background-image: url('Icons/user.png')")
+	   (label :text User :class "power-user")
+	   (label :text Time :class "power-time")
+	   (box :orientation "h" :halign "center" :valign "center" :class "power-control" :space-evenly "false"   
+            (button :onclick "shutdown now" :class "button_power" :halign "center" :valign "center")
+            (button :onclick "reboot" :class "button_reboot" :halign "center" :valign "center")
+			(button :onclick "pkill -u -9 $USER" :class "button_exit" :halign "center" :valign "center"))))
+
+;; Bottom bar
+(defwidget Bottom-bar [] 
+  (box :orientation "h" :class "bottom-bar" :space-evenly "false" 
+	   (button :onclick "rofi -theme ~/.config/rofi/launcher.rasi -show drun &" :tooltip "Menu" :class "menu" "")
+	   (button :onclick "eww open hobby" :tooltip "Social (Press Super+a to close)" :class "share-button" "  Share")
+	   (button :onclick "eww open settings" :class "settings-button" :tooltip "Settings" "   Settings")
+	   (box :orientation "h" :space-evenly "false" :class "playerspotify" 
+			(label :class "separator")
+			(button :onclick "sh ~/.config/eww/scripts/spotify ART & eww open spotify" :tooltip "Click once to view the album art!" :class "icon-spotify" :halign "center" :valign "center" :style "background-image: url('{{image}}')")
+			(box :class "metadata" :orientation "v" :space-evenly "true" :vexpand "false" :hexpand "false" 
+				 (button :class "spotify-meta" :tooltip spotify_artist " ${midia-playing}")))))
+
+;; Left bar
+(defwidget Disp [] 
+  (box :orientation "v" :class "disp" :space-evenly "false" 
+	   (button :onclick "eww open calendar" :class "disp-time" :tooltip "Calendar" Time-Settings)
+	   (label :class "disp-separator")
+	   (button :onclick "spotify &" :class "disp-app" :tooltip "Spotify music" :style "background-image: url('Icons/Panel/spotify.svg')")
+	   (button :onclick "xfce4-terminal &" :class "disp-app" :tooltip "Terminal" :style "background-image: url('Icons/Panel/terminal.svg')")
+	   (button :onclick "subl &" :class "disp-app" :tooltip "Editor" :style "background-image: url('Icons/Panel/sublime.svg')")
+	   (button :onclick "firefox &" :class "disp-app" :tooltip "Web Browser" :style "background-image: url('Icons/Panel/firefox.svg')")))
+
+;; Hobby
+;; Applicatins for social panel "Facebook Instagram and Youtube"
+(defwidget Hobby [] 
+  (box :orientation "h" :space-evenly "false" :class "hobby"  
+	   (button :onclick "xdg-open https://facebook.com & eww close hobby" :class "face")
+	   (button :onclick "xdg-open https://instagram.com & eww close hobby" :class "insta")
+	   (button :onclick "xdg-open https://youtube.com & eww close hobby" :class "tube")))
+
+;; Hobby2
+;; Applicatins for social panel "Twitter Telegram and Discord"
+(defwidget Hobby2 [] 
+  (box :orientation "h" :space-evenly "false" :class "hobby"  
+	   (button :onclick "xdg-open https://twitter.com & eww close hobby" :class "twitter")
+	   (button :onclick "telegram-desktop & eww close hobby" :class "tele")
+	   (button :onclick "xdg-open https://discord.com & eww close hobby" :class "discord")))
+
+;; Hobby3
+;; Applicatins for social panel "Reddit Netiflix and Github"
+(defwidget Hobby3 [] 
+  (box :orientation "h" :space-evenly "false" :class "hobby"  
+	   (button :onclick "xdg-open https://reddit.com & eww close hobby" :class "red")
+	   (button :onclick "xdg-open https://netflix.com & eww close hobby" :class "net")
+	   (button :onclick "xdg-open https://github.com & eww close hobby" :class "git")))
+
+;; Volume
+(defwidget Volume [] 
+  (box :orientation "h"  :halign "start" :class "volume" :space-evenly "false"
+	   (button :class "label-vol" :onclick "amixer -q set Master toggle" Status)
+	   (scale :orientation "h" 
+			  :flipped "false" 
+			  :min "0" 
+			  :max "100" 
+			  :value "{{volume}}" 
+			  :onchange "amixer -D pulse sset Master {}%")
+	   ))
+
+;; Spotify
+(defwidget Spotify [] 
+  (box :orientation "v" :space-evenly "false" :class "spot-widget"
+	   (button :onclick "eww close spotify"
+			   :class  "art-album" 
+			   :halign "center" 
+			   :valign "center" 
+			   :style "background-image: url('{{image}}')")
+	   ))
+
+;; Spotify control music
+(defwidget Control [] 
+  (box :orientation "h" :class "spoti-control" :space-evenly "true"
+	(button :onclick "playerctl previous" 
+			   :class "spoti-control-music" 
+			   :halign "center" :valign "center" 
+			   :style "background-image: url('Icons/Candy/previous.svg')")
+	(button :onclick "playerctl play-pause" 
+		  :class "spoti-control-music" 
+		  :halign "center" :valign "center" 
+		  :style "background-image: url('{{spot-status}}')")
+
+	(button :onclick "playerctl next" 
+		  :class "spoti-control-music" 
+		  :halign "center" :valign "center" 
+		  :style "background-image: url('Icons/Candy/next.svg')" 
+		  )))
+
+;; Highlight
+(defwidget Highligh [] 
+  (box :orientation "v" :space-evenly "false" :class "highlight" 
+	   (label :text "Highligh Colors")
+	   (box :orientation "h" :space-evenly "false" :class "highlight-colors" 
+            (button :class "highlight-use1" :onclick "sh ~/.config/eww/scripts/highlight red")
+            (button :class "highlight-use2" :onclick "sh ~/.config/eww/scripts/highlight green")
+            (button :class "highlight-use3" :onclick "sh ~/.config/eww/scripts/highlight purple")
+            (button :class "highlight-use4" :onclick "sh ~/.config/eww/scripts/highlight orange")
+            (button :class "highlight-use5" :onclick "sh ~/.config/eww/scripts/highlight blue")
+            (button :class "highlight-use6" :onclick "sh ~/.config/eww/scripts/highlight cyan"))))
+
+
+
+
+;; Variables
+
+(defpoll spotify_artist :interval "1s"  "echo -e \" ARTIST: `playerctl metadata artist`\n TITLE: `playerctl metadata title`\"")
+(defpoll spot-status :interval "1s"  "sh ~/.config/eww/scripts/spotify SPOT")
+(defpoll midia-playing :interval "1s"  "sh ~/.config/eww/scripts/spotify PLAYING")
+(defpoll spot-art :interval "1s"  "sh ~/.config/eww/scripts/spotify ART")
+(defpoll image :interval "1s"  "echo /tmp/spotify/cover.png")
+
+;;  PopUp de volume chamado no icone de volume da barra lateral
+(defpoll volume :interval "1s"  "sh ~/.config/eww/scripts/volume VOLUME")
+(defpoll Status :interval "1ms"  "sh ~/.config/eww/scripts/volume VOLUME_ICON")
+
+;; Mode
+(defpoll mode :interval "1h"  "sh ~/.config/eww/scripts/current-mode")
+(defpoll User :interval "72h"  "echo \"$USER@`uname -n`\"")
+(defpoll Time :interval "1s"  "date '+%H:%M:%S'")
+(defpoll Time-Settings :interval "1s"  "date '+%H:%M'")
+(defpoll Date :interval "1h"  "date '+%A, %d de %B de %Y'")
+
+;; Data exibida no calendario
+(defpoll date :interval "72h"  "date '+%Y'")
+
+;; Icone que representa o status do clima
+(defpoll weathericons :interval "1s"  "echo -e \"`curl wttr.in/?format=%c`\"")
+;; Nome da cidade de onde a previsao do clima esta sendo feita
+(defpoll city :interval "24h"  "curl wttr.in/?format=%l")
+;; Status do clima
+(defpoll weather-status :interval "1h"  "curl wttr.in/?format=%C")
+;; Temperatura
+(defpoll weather-temp :interval "1h"  "curl wttr.in/?format=%t")
+;; Velocidade do vento
+(defpoll weather-speed :interval "1h"  "curl wttr.in/?format=%w")
+;; Fazes da lua
+(defpoll moon :interval "1h"  "curl wttr.in/Criciuma?format=%m")
+
+
+
+;; Windows
+
+(defwindow bottom-bar :stacking "bg" 
+  :geometry (geometry :x 230 :y 700 :width 0 :height 0)
+  (Bottom-bar))
+
+;; Left bar
+(defwindow disp :stacking "bg" :focusable "false" 
+  :geometry (geometry :x 230 :y 160 :width 0 :height 0)
+  (Disp))
+
+;; Power menu
+(defwindow power :stacking "bg" 
+  :geometry (geometry :x 300 :y 160 :width 0 :height 0)
+  (Power))
+
+;; Hobby
+(defwindow hobby :stacking "bg" 
+  :geometry (geometry :x 300 :y 160 :widget 0 :height 0)
+  (box :orientation "v" :space-evenly "false" 
+	   (Hobby)
+	   (Hobby2)
+	   (Hobby3)
+	   (Close)))
+
+;; Music;; Spotify
+(defwindow spotify :stacking "bg" 
+  :geometry (geometry :x 1073 :y 310 :width 0 :height 0)
+  (box :orientation "v" :space-evenly "false" 
+	   (Spotify)
+	   (Control)
+	   (Volume)))
+(defwindow settings :stacking "bg" 
+  :geometry (geometry :x 300 :y 160 :width 0 :height 0)
+  (box :orientation "h" :space-evenly "false" :lass "\\" 
+          (Disp2)
+            (box :orientation "v" :space-evenly "false" :class "box-settings" 
+              (Settings)
+              (Settings-Volume)
+              (Highligh)
+              (Screenshot))))
+
+  ;; Calendar
+  (defwindow calendar :stacking "bg" 
+			    :geometry (geometry :x 300 :y 160 :width 0 :height 0)
+			     				(box :orientation "h" :space-evenly "false" :class "box-calendar" 
+          (Calendar)))
+
+  ;; Weather
+  (defwindow weather :stacking "bg" 
+			    :geometry (geometry :x 300 :y 160 :width 0 :height 0)
+			     				(box :orientation "v" :space-evenly "false" :class "box-weather" 
+          (Weather)
+          (Close)))
+
+
